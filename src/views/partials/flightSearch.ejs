@@ -1,0 +1,565 @@
+<!-- Required CSS file for iOS Slider element -->
+<link rel="stylesheet" href="css/sliders/ios/style.css" type="text/css" media="all">
+<style>
+    .serch-botton {
+        cursor: pointer;
+        border-radius: 0 45px 45px 0;
+        border: 0;
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+        padding: 50px 54px 38px;
+        background: url(/images/icon/search-icon.png),linear-gradient(90deg,rgb(237 61 61) 0%,rgb(238 61 60) 100%);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    .rf__field {
+        /*border-right: 1px solid rgb(185 50 50 / 94%);*/
+        margin-left: 6px;
+        padding-left: 4px;
+        float: left;
+    }
+    .brdr-right {
+        border-right: 1px solid rgb(185 50 50 / 94%);
+    }
+
+    .sc__res-form {
+        /*position: absolute;*/
+        box-shadow: 0 0 30px rgb(0 0 0 / 0%);
+    }
+
+    .rfblock--fields {
+        padding: 0px 1px;
+        background-color: #345370;
+        border-radius: 45px;
+        height:86px;
+    }
+
+    .rfblock-fields {
+        padding: 5px 1px;
+        background-color: #34537000;
+        border-radius: 3px 0 0 3px;
+    }
+
+    
+
+
+    element.style {
+    }
+
+    .rf__input.rf__checkinmonth {
+        margin-left: 0;
+        height:86px;
+        border-radius:45px;
+        
+    }
+
+    .rf__input {
+        width: 100%;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        background-repeat: no-repeat;
+        background-size: 5px 8px;
+        background-position: 86% 50%;
+        background-color: #ffffff;
+        border: 0;
+        height: 35px;
+        padding: 0 0 0 15px;
+        color: #343434;
+        outline: none;
+    }
+
+    .custom-dropdown {
+        background-color: #ffffff !important;
+        padding-top: 30px;
+        color: #343434;
+        height: 86px;
+    }
+
+    rf__checkinmonth:hover {
+        border-radius: 50px;
+        background-color: #fff;
+        box-shadow: 0 13px 49px 0 rgb(12 6 14 / 14%);
+        -webkit-box-shadow: 0 13px 49px 0 rgb(12 6 14 / 14%);
+        -moz-box-shadow: 0 13px 49px 0 rgba(12,6,14,.14);
+        background: #fff;
+        z-index: 9;
+        position: relative;
+        width: 300px;
+    }
+    .rf__select2 {
+        background-color: #fff0 !important;
+        font-size: 15px;
+    }
+
+    /*Passeger dropdown*/
+
+
+    .dropdown-content-n {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        width: 180px;
+        padding: 10px;
+        box-shadow: 0 0 20px 0 rgb(0 0 0 / 40%);
+        z-index: 999;
+        top: 105px;
+        box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        border: 1px solid rgba(255,255,255,.8);
+        background: rgba(245, 245, 245, 0.95);
+        background: #f5f5f5;
+    }
+
+    .innr_pnl {
+        width: 180px;
+        position: relative;
+    }
+
+        .innr_pnl::before {
+            content: '';
+            position: absolute;
+            left: 2%;
+            top: -20px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #fff;
+            clear: both;
+        }
+
+    .main_dv {
+        width: 100%;
+        float: left;
+        margin-bottom: 13px;
+    }
+
+    .ttl_col {
+        width: 40%;
+        float: left;
+    }
+
+        .ttl_col p {
+            font-size: 13px;
+            color: #000;
+            display: block;
+            margin: 0;
+        }
+
+        .ttl_col span {
+            font-size: 10px;
+            color: #a3a2a2;
+            display: block;
+        }
+
+    .count_col {
+        width: 60%;
+        float: left;
+    }
+
+    .plu-mis-s {
+        width: 85px;
+        float: right;
+    }
+
+    .minus_boxADt, .minus_box1 {
+        background-color: #2196f3;
+        border: none;
+        clear: both;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 19px;
+        margin-left: 0;
+        outline: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        line-height: 0;
+        padding: 0;
+    }
+
+    .numbe_box2 {
+        background-color: transparent;
+        border: none;
+        color: #000;
+        display: block;
+        float: left;
+        font-size: 15px;
+        outline: none;
+        text-align: center;
+        width: 32px;
+        line-height: 30px;
+        padding: 0;
+        height: auto !important;
+    }
+
+    .plus_box1, .plus_boxChd, .plus_box1Inf {
+        background-color: #2196f3;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        float: right;
+        font-size: 21px;
+        margin-right: 0;
+        outline: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        line-height: 0;
+        padding: 0;
+    }
+
+    .innr_pnl a {
+        cursor: pointer;
+        background: #ef6614;
+        float: right;
+        text-align: center;
+        padding: 4px 12px;
+        display: block;
+        color: #fff !important;
+        font-size: 11px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+    /* end passenger dwopdown*/
+    .rfblock--submit {
+        margin-top: -45px;
+        width: 20%;
+    }
+
+    .sc__res-form {
+        width: 100% !important;
+        margin: -350px auto 0 !important;
+    }
+
+    .rf__label {
+        color: #fff;
+    }
+
+    .rfblock-fields {
+        padding: 5px 1px;
+        background-color: #34537000;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .rf__select2 {
+        background-color: #fff !important;
+        font-size: 15px;
+        border-radius: 30px
+    }
+    .rf__block {
+        float: left;
+        width: 100%;
+    }
+    .slider__height {
+        height: 636.05px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .rfblock--fields {
+            padding: 0px 1px;
+            background-color: #ffffff;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .sc__res-form {
+            width: 95%;
+            margin: 30px auto 0;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .sc__res-form {
+            width: 95% !important;
+            margin: -164px auto 0 !important;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .pt-80 {
+            padding-top: 80px !important;
+        }
+
+        .sc__res-form {
+            width: 95% !important;
+            /*margin: -67px auto 0 !important;*/
+        }
+
+        .pt-20 {
+            /*padding-top: 0px !important;*/
+            padding-top: 90px !important;
+        }
+
+        .rf__submit {
+            width: 100%;
+            height: 60px;
+            border-radius: 0 0 3px 3px;
+            margin-top: 45px;
+        }
+
+        .slider__height {
+            height: 300px !important;
+        }
+
+        .iosslider--custom-height.fullscreen {
+            height: 55vh !important;
+        }
+    }
+</style>
+
+<div class="kl-slideshow iosslider-slideshow iosslider--custom-height fullscreen scrollme kl-slider-loaded">
+
+    <div class="bgback">
+    </div>
+
+    <!-- Animated Sparkles -->
+    <div class="th-sparkles"></div>
+    <!--/ Animated Sparkles -->
+    <!-- iOS Slider wrapper with animateme scroll efect -->
+    <div class="iosSlider kl-slideshow-inner animateme slider__height" data-trans="6000" data-autoplay="1" data-infinite="true" data-when="span" data-from="0" data-to="0.75" data-translatey="300" data-easing="linear" style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 1; perspective: 1000px; backface-visibility: hidden; width: 1479.2px;">
+        <!-- Slides -->
+        <div class="kl-iosslider hideControls" style="position: relative; cursor: -webkit-grab; perspective: 0px; backface-visibility: hidden; transform: matrix(1, 0, 0, 1, -7396, 0); width: 7396px;">
+           
+
+            <!-- Slide #3 -->
+            <div class="item iosslider__item" style="overflow: hidden; position: absolute; transform: matrix(1, 0, 0, 1, 11833, 0); backface-visibility: hidden; width: 1479.2px;">
+                <!-- Image -->
+                <div class="slide-item-bg" style="background-image:url(images/sliders/iosslider_fullheight/slide4.jpg);">
+                </div>
+                <!--/ Image -->
+                <!-- Gradient overlay -->
+                <div class="kl-slide-overlay">
+                </div>
+                <!--/ Gradient overlay -->
+                <!-- Captions container -->
+                <div class="container kl-iosslide-caption kl-ioscaption--style5 fromleft klios-alignleft kl-caption-posv-middle">
+                    <!-- Captions animateme wrapper -->
+                    <div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
+
+                        <!-- Main Big Title -->
+                       
+                        <!--/ Main Big Title -->
+
+
+                    </div>
+                    <!--/ Captions animateme wrapper -->
+                </div>
+                <!--/ Captions container -->
+            </div>
+            <!--/ Slide #3 -->
+           
+
+
+
+        </div>
+        <!--/ Slides -->
+       
+    </div>
+    <!--/ iOS Slider wrapper with animateme scroll efect -->
+    
+    <div class="scrollbarContainer">
+    </div>
+</div>
+
+ <div class="sc__res-form container clearfix">
+            <!-- <form class="sc__form-reservation"> -->
+                <div class="rf__block rfblock-fields clearfix">
+                    <div class="rf__field clearfix">
+                        <select id="_jtype" name="jType" class="rf__select rf__select2"  style="text-align:center">
+                            <option value="r">Return&nbsp;&nbsp;</option>
+                            <option value="o">Oneway&nbsp;&nbsp;</option>
+
+                        </select>
+                    </div>
+                    <!-- /.rf__field -->
+                    <div class="rf__field">
+                        <select id="cabin_class" name="_cabinClass" class="rf__select rf__select2" style="text-align: center; padding: 0 0 0 1px;">
+                            <option value="Economy">Economy</option>
+                            <option value="PremiumEconomy">Premium Economy&nbsp;&nbsp;&nbsp;</option>
+                            <option value="Business">Business</option>
+                            <option value="First">First</option>
+
+                        </select>
+
+                    </div>
+                    <!-- /.rf__field -->
+                    <div class="rf__field">
+
+                    </div>
+
+                    <!-- /.rf__field -->
+                    <div class="rf__field">
+
+                    </div>
+                    <!-- /.rf__field -->
+                </div>
+
+                <div class="rf__block rfblock--fields clearfix">
+                    <div class="rf__field clearfix brdr-right">
+                        <input type="hidden" name="hid_origin" id="hid_origin" />
+                        <input type="text" name="_origin" id="_origin" class="rf__input rf__checkinmonth autocomplete" placeholder="Origin" value="" required>
+
+
+                    </div>
+                    <!-- /.rf__field -->
+                    <div class="rf__field brdr-right">
+                        <input type="hidden" name="hid_destination" id="hid_destination" />
+                        <input type="text" name="_destination" id="_destination" class="rf__input rf__checkinmonth autocomplete2" placeholder="Destination" value="" required>
+                    </div>
+                    <!-- /.rf__field -->
+                    <div class="rf__field brdr-right">
+                        <label class="rf__label">Departure - Return Date</label>
+                        <input style="height: 28px;" type="text" name="_departDate" id="_departDate" required="required" class="date  hasDatepicker focus rf__input rf__checkinmonth" data-date-format="dd/mm/yyyy" placeholder="Departure - Return Date" value="" data-date-start-date="+1d" data-date-end-date="+340d" readonly="readonly">
+                    </div>
+
+                    <!-- /.rf__field -->
+                    <div class="rf__field brdr-right">
+
+                        <fieldset class="trip-paxes" id="formButton">
+
+                            <!-- <label class="field-label">Passengers</label> -->
+                            <div class="rf__select  rf__checkinguests custom-dropdown" id="totalPax">1 Traveller(s)</div>
+
+                            <div id="myDropdown_n" class="dropdown-content-n" style="display: none;">
+                                <div class="innr_pnl">
+                                    <div class="main_dv">
+                                        <div class="ttl_col"><p>Adult</p><span>(12+ yrs)</span></div>
+                                        <div class="count_col">
+                                            <div class="plu-mis-s">
+                                                <div class="m1">
+                                                    <input type="button" id="_adultsDec" value="-" class="minus_boxADt qtyDec" field="quantity">
+                                                </div>
+                                                <div class="tx">
+                                                    <input type="text" name="_adults" value="1" class="numbe_box2" id="_adults" readonly="">
+                                                </div>
+                                                <div class="pl">
+                                                    <input type="button" id="_adultsInc" value="+" class="plus_box1 qtyInc" field="quantity">
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main_dv">
+                                        <div class="ttl_col"><p>Children</p><span>(2+ 12 yrs)</span></div>
+                                        <div class="count_col">
+                                            <div class="plu-mis-s">
+                                                <div class="m1">
+                                                    <input type="button" id="_childrenDec" value="-" class="minus_box1 qtyDec" field="quantity1">
+                                                </div>
+                                                <div class="tx">
+                                                    <input type="text" name="_children" value="0" class="numbe_box2" id="_children" readonly="">
+                                                </div>
+                                                <div class="pl">
+                                                    <input type="button" id="_childrenInd" value="+" class="plus_boxChd qtyInc" field="quantity1">
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main_dv">
+                                        <div class="ttl_col"><p>Infant(s)</p><span>(below 2 yrs)</span></div>
+                                        <div class="count_col">
+                                            <div class="plu-mis-s">
+                                                <div class="m1">
+                                                    <input type="button" id="_infantsDec" value="-" class="minus_box1 qtyDec" field="quantity2">
+                                                </div>
+                                                <div class="tx">
+                                                    <input type="text" name="_infants" value="0" class="numbe_box2" id="_infants" readonly="">
+                                                </div>
+                                                <div class="pl">
+                                                    <input type="button" id="_infantsInd" value="+" class="plus_box1Inf qtyInc" field="quantity2">
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clr r d-inline-flex mr-20  mt-10"></div>
+                                    <a id="done" class="btn-element btn btn-fullcolor btn-skewed">Done</a>
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+
+
+                    </div>
+                    <!-- /.rf__field -->
+                    <div class="rf__field_right">
+                        <button id="submit_search" type="submit" onclick="return ValidateSearch();" class="rf__submit1 serch-botton">
+                            
+                        </button>
+                    </div>
+                </div>
+
+            <!-- </form> -->
+</div>
+
+
+<!-- Date Picker -->
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="js/searchValidation.js"></script>
+
+<script>
+   ValidateSearch = function () {
+        
+      
+        if ($('#hid_origin').val() == "") {
+            alert("Kindlly select departure airport from auto suggest list");
+            $('#_origin').val('');
+            $('#_origin').focus();
+            return false;
+        }
+        else if ($('#hid_destination').val() == "") {
+            alert("Kindlly select destination airport from auto suggest list");
+            $('#_destination').val('');
+            $('#_destination').focus();
+            return false;
+        }
+        let jType = $('#_jtype').val()
+        console.log(jType)
+        let _departure
+        let url
+        let _return
+
+        if(jType == 'r'){
+            const str = $('#_departDate').val()
+            const arr = str.split(/-|\s/);
+            _departure = arr[0]
+            _return = arr[arr.length-1]
+            url = `${window.location.origin}/flight/wait?Origin=${$('#hid_origin').val()}&Destination=${$('#hid_destination').val()}&Adults=${$('#_adults').val()}&Childs=${$('#_children').val()}&Infants=${$('#_infants').val()}&Departure=${_departure}&jType=${jType}&ClassOfService=${ $('#cabin_class').val()}&ReturnDate=${_return}`
+        } else {
+            url=`${window.location.origin}/flight/wait?Origin=${$('#hid_origin').val()}&Destination=${$('#hid_destination').val()}&Adults=${$('#_adults').val()}&Childs=${$('#_children').val()}&Infants=${$('#_infants').val()}&Departure=${$('#_departDate').val()}&jType=${jType}&ClassOfService=${ $('#cabin_class').val()}`
+        }
+      
+        window.location.href = url
+    }
+    // $('#submit_search').on('click', function(e){
+       
+       
+    // })
+
+
+
+</script>
+
+

@@ -1,0 +1,1008 @@
+﻿
+#top-confirmation-p {
+    padding: 15px 0;
+    padding-bottom: 0;
+    background: #f6fafd;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+    #top-confirmation-p::after {
+        content: "";
+        /* background: url(../../assets/images/line-confirm.png) no-repeat; */
+        width: 100%;
+        height: 10px;
+        display: inline-block;
+        position: absolute;
+        bottom: -11px;
+    }
+
+div#top-confirmation-p h1 {
+    text-align: center;
+    color: #181d23;
+    font-size: 36px;
+    margin: 0;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+    div#top-confirmation-p h1 i {
+        font-size: 36px;
+        display: inline-block;
+        vertical-align: text-top;
+        margin-top: 3px;
+    }
+
+div#top-confirmation-p p {
+    font-size: 15px;
+    text-align: center;
+    padding: 5px 0;
+    color: #181d23;
+    font-weight: 500;
+}
+
+    div#top-confirmation-p p span {
+        display: block;
+        font-weight: 400;
+        padding: 0;
+        font-size: 12px;
+        color: #666;
+        line-height: 15px;
+        margin-bottom: 20px;
+    }
+
+.inner-confirm-wrap {
+    background-color: #ffffff;
+    padding-bottom: 30px;
+   /* float: left;*/
+    width: 100%;
+}
+
+.confirm-col-info {
+    padding: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 100%;
+    background: #002f62;
+}
+
+{
+}
+
+.travel-addrs-col h2 i.fa.fa-plane {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    vertical-align: bottom;
+    margin-right: 5px;
+    transform: rotate(45deg);
+}
+
+.confirm-col-info ul {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+}
+
+    .confirm-col-info ul li {
+        list-style: none;
+        width: 33.3%;
+        float: left;
+        text-align: center;
+        padding: 15px 0;
+        border-right: 1px solid #dfe5f2;
+        margin-top: 5px;
+    }
+
+        .confirm-col-info ul li:last-child {
+            border: none;
+        }
+
+        .confirm-col-info ul li p {
+            font-size: 16px;
+            margin: 0;
+            color: #ffffff;
+        }
+
+            .confirm-col-info ul li p i {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 10px;
+                font-size: 22px;
+                color: #ffffff;
+            }
+
+            .confirm-col-info ul li p strong {
+                display: inline-block;
+                margin-right: 10px;
+                font-weight: 500;
+            }
+
+.table thead th {
+    padding: 8px 15px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #1c2227;
+    border-bottom: 1px solid #dfe5f2;
+    border-bottom: 1px solid #dfe5f2;
+}
+
+.table th,
+.table td {
+    font-size: 14px;
+    color: #444;
+    padding: 8px 15px;
+    vertical-align: middle;
+    border: none;
+    border-right: 1px solid #dfe5f2;
+}
+
+.travel-addrs-col {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #e0e6f1;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+}
+
+table.table {
+    margin: 0;
+}
+
+.travel-addrs-col h2 {
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #1b62b0;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #e0e6f1;
+    border-top: 1px solid #fff;
+    margin-bottom: 0;
+    color:#fff;
+}
+
+    .travel-addrs-col h2 i {
+        display: inline-block;
+        font-size: 22px;
+        color: #fff;
+        vertical-align: bottom;
+        margin-right: 5px;
+    }
+
+ul.add-col-stct {
+    padding: 0;
+    margin: 0;
+}
+
+    ul.add-col-stct li {
+        list-style: none;
+        width: 20%;
+        float: left;
+        font-size: 14px;
+        color: #444;
+        padding: 5px 15px;
+        border-right: 1px solid #dfe5f2;
+    }
+
+        ul.add-col-stct li:last-child {
+            border: none;
+        }
+
+        ul.add-col-stct li strong {
+            display: block;
+            padding: 8px 0;
+            font-weight: 600;
+            font-size: 14px;
+            color: #014675;
+            padding-top: 3px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1c2227;
+        }
+
+.flight-col-confirminfo {
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+    .flight-col-confirminfo h3 {
+        font-size: 14px;
+        font-weight: 500;
+        color: #161c21;
+        padding: 10px;
+        border-bottom: 1px dashed #e0e6f2;
+        border-top: 1px dashed #e0e6f2;
+        display: block;
+        background-color: rgba(224, 230, 242, 0.08);
+    }
+
+.flight-ret-depart {
+    display: inline-block;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.lt-depart,
+.rt-depart {
+    float: left;
+    width: 25%;
+}
+
+    .lt-depart span {
+        display: inline-block;
+        color: #000a13;
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+    .lt-depart strong {
+        display: inline-block;
+        font-size: 18px;
+        color: #000;
+        padding: 0 10px;
+    }
+
+    .lt-depart span.tm-col-info {
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .lt-depart p {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 5px 0;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+.arrow-cntr {
+    float: left;
+    width: 8%;
+    height: 25px;
+    padding: 5px 15px;
+}
+
+    .arrow-cntr i {
+        font-size: 24px;
+        color: rgba(67, 86, 150, 0.5);
+        margin-top: 10px;
+    }
+
+.fcstop {
+    float: left;
+    width: 20%;
+    padding: 5px 10px;
+}
+
+    .fcstop ul {
+        padding: 0;
+        margin: 0;
+        float: left;
+        width: 100%;
+    }
+
+        .fcstop ul li {
+            float: left;
+            list-style: none;
+            width: 100%;
+            text-align: left;
+            font-size: 10px;
+            font-weight: 500;
+            color: #445663;
+            line-height: 18px;
+        }
+
+.airlin-codinfo {
+    padding: 5px 10px;
+    padding-bottom: 0;
+    background-color: #fff;
+    float: left;
+    width: 22%;
+}
+
+    .airlin-codinfo strong {
+        font-weight: 700;
+        font-size: 12px;
+        color: #445663;
+    }
+
+    .airlin-codinfo p {
+        font-size: 10px;
+        color: #f3822a;
+        font-weight: 500;
+        padding: 0;
+        margin-bottom: 5px;
+    }
+
+.ltd-bdr-infoset {
+}
+
+.flight-col-confirminfo h3 i {
+    display: inline-block;
+    vertical-align: sub;
+    font-size: 16px;
+    color: #181d23;
+    margin-right: 5px;
+}
+
+.col-ttl-amt {
+    float: left;
+    width: 100%;
+    text-align: right;
+    background-color: #f6fafd;
+    padding: 7px 15px;
+    border-top: 1px solid #dfe5f2;
+}
+
+.lt-depart i.material-icons {
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 10px;
+    color: #666;
+}
+
+.col-ttl-amt h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #252e35;
+}
+
+    .col-ttl-amt h6 strong {
+        margin-right: 50px;
+    }
+
+.py-xl-10.py-5 p {
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    ul.add-col-stct li {
+        width: 50%;
+        border-bottom: 1px solid #dfe5f2;
+    }
+
+    .confirm-col-info ul li p {
+        font-size: 14px;
+    }
+
+    .confirm-col-info ul li p {
+        font-size: 14px;
+        display: block;
+        width: 100%;
+    }
+
+        .confirm-col-info ul li p i {
+            margin-bottom: 10px;
+        }
+
+        .confirm-col-info ul li p strong {
+            width: 100%;
+            text-align: center;
+        }
+
+    div#top-confirmation-p p {
+        font-size: 14px;
+    }
+
+        div#top-confirmation-p p span {
+            font-size: 10px;
+        }
+
+    div#top-confirmation-p h1 {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+        div#top-confirmation-p h1 i {
+            font-size: 22px;
+        }
+
+    .lt-depart,
+    .rt-depart {
+        width: 45%;
+    }
+
+    .arrow-cntr {
+        width: 10%;
+        padding: 5px 0;
+    }
+
+    .fcstop {
+        width: 100%;
+        background-color: rgba(224, 230, 242, 0.08);
+        border: 1px dashed #e0e6f2;
+        padding: 5px 10px;
+    }
+
+        .fcstop ul li {
+            width: 33.3%;
+        }
+
+    .airlin-codinfo {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .confirm-col-info ul li p {
+        font-size: 14px;
+    }
+
+    .fcstop ul li {
+        font-size: 12px;
+    }
+
+    .lt-depart strong {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .loading-page.style2 .notice-message {
+        font-size: 2.5em;
+    }
+
+    .loading-page-wrapper .loader-wrap {
+        width: 100%;
+    }
+
+    .loading-page-wrapper p strong {
+        display: inline-block;
+        margin: 0;
+        font-size: 20px;
+    }
+
+        .loading-page-wrapper p strong span {
+            font-size: 12px;
+            font-weight: 400;
+            padding-right: 0;
+        }
+}
+
+.link-collapse-custom[aria-expanded="false"]::before {
+    background-image: linear-gradient(180deg, transparent 40%, #fff 99%);
+    background-repeat: repeat-x;
+    z-index: 1;
+    bottom: 74px;
+    height: auto;
+}
+
+.spOff_priDiv {
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.spOff_fare {
+    padding: 30px 15px;
+    display: block;
+    text-align: center;
+}
+
+    .spOff_fare .spOff_airline {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+.spOff_priDiv .line_ {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    background-color: #333;
+    height: 1px;
+    position: relative;
+    margin: 12px 0;
+    float: left;
+}
+
+.spOffer_Txt {
+    color: #333 !important;
+}
+
+.spOff_priTxt {
+    font-size: 12px;
+    float: left;
+}
+
+.spOffer_Txt {
+    color: #333 !important;
+}
+
+.spOff_price {
+    font-size: 35px;
+    color: #d07e00;
+}
+
+.inrate {
+    display: inline-block;
+}
+
+.spOff_airline {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.spOffFares_D {
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    background: #ececec;
+    margin-bottom: 30px;
+    color: #333;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-color: #ececec;
+    border-style: solid;
+}
+
+.spOffer_Txt.clbor {
+    display: inline-block;
+}
+
+.spOff_enq {
+    padding-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+    .spOff_enq span {
+        color: #fff;
+        background-color: #d07e00;
+        padding: 5px 15px;
+        font-size: 10px;
+        border: 1px solid #d07e01;
+        outline: 1px dashed #ffffff94;
+        outline-offset: -3px;
+    }
+
+.w-lg-80.w-xl-60.mx-auto.collapse_custom.position-relative.mb-4.pb-xl-1 p {
+    padding-bottom: 20px;
+}
+
+.link-collapse[aria-expanded="false"] .link-collapse__default {
+    display: inline-block;
+}
+
+.link-collapse[aria-expanded="false"] .link-collapse__active {
+    display: none;
+}
+
+.link-collapse[aria-expanded="true"] .link-collapse__default {
+    display: none;
+}
+
+.link-collapse[aria-expanded="true"] .link-collapse__active {
+    display: inline-block;
+}
+
+.box-col-infra.busineclsingo {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+ul.info-grantee-col-info.busnesxlandfirstclsinfo li {
+    width: 19%;
+    -webkit-box-shadow: 0 1px 5px 0 rgb(0 0 0 / 0.25);
+    -moz-box-shadow: 0 1px 5px 0 rgb(0 0 0 / 0.25);
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 0.25);
+    margin: 0.5%;
+    border-radius: 5px;
+    min-height: 155px;
+    text-align: center;
+}
+
+    ul.info-grantee-col-info.busnesxlandfirstclsinfo li img {
+        width: auto;
+        display: inline-block;
+        opacity: 0.8;
+        margin: 0 auto;
+        text-align: center;
+        float: initial;
+    }
+
+    ul.info-grantee-col-info.busnesxlandfirstclsinfo li p {
+        width: 100%;
+        padding: 10px 15px;
+        color: #000;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        font-family: "Rubik", sans-serif;
+    }
+
+@media (max-width: 767px) {
+    .bg-img-hero .py-xl-10.py-5 {
+        position: relative;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    h1.font-size-40.font-size-xs-30.text-white.font-weight-bold.mb-0 {
+        color: #fff !important;
+        font-size: 24px;
+    }
+
+    .py-xl-10.py-5 p {
+        color: #fff;
+        font-size: 12px;
+        line-height: 20px;
+        margin-top: 10px;
+    }
+
+    .container.space-top-xl-3.py-6.py-xl-0 nav {
+        float: inherit;
+    }
+
+    .mat-autocomplete-panel {
+        max-height: 100%;
+    }
+
+    .cdk-overlay-pane {
+        max-width: 100%;
+        max-height: 100vh;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100%;
+    }
+
+    .mat-datepicker-content {
+        width: 100%;
+    }
+
+        .mat-datepicker-content .mat-calendar {
+            width: 100%;
+            height: 100%;
+        }
+
+    .mat-datepicker-content {
+        display: block;
+        border-radius: 0 !important;
+        width: 100%;
+    }
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #92cb30;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #92cb30;
+}
+
+.destination-dropdown.v1.bsclinfoset a {
+    color: #fff;
+    font-size: 20px;
+}
+
+    .destination-dropdown.v1.bsclinfoset a:first-child i {
+        transform: rotate(45deg);
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 17px;
+        vertical-align: middle;
+    }
+
+    .destination-dropdown.v1.bsclinfoset a:first-child {
+        font-weight: 600;
+        font-size: 16px;
+        border-bottom: 1px solid #fff;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .destination-dropdown.v1.bsclinfoset a:last-child a {
+    }
+
+    .destination-dropdown.v1.bsclinfoset a:last-child {
+        font-weight: bold;
+        font-size: 16px;
+        color: #fff;
+        background-color: transparent;
+        border-top: 1px solid #fff;
+    }
+
+.destination-dropdown.v1.bsclinfoset {
+    background-color: rgb(0 0 0 / 47%);
+    padding: 5px;
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+    .destination-dropdown.v1.bsclinfoset a:last-child i {
+        display: inline-block;
+        margin: 0;
+        background-color: transparent;
+        display: block;
+    }
+
+.p-5b {
+    padding: 2rem 1rem;
+}
+
+.destination-dropdown.v1.bsclinfoset p {
+    display: block;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #272121;
+    text-align: center;
+}
+
+.busbannering {
+    display: inline-block;
+    width: 100%;
+}
+
+    .busbannering img {
+        max-width: 100%;
+    }
+
+    .busbannering button {
+        background: no-repeat;
+        border-color: transparent;
+        padding: 0;
+    }
+
+.form_title {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 10px
+}
+
+    .form_title h3 strong {
+        background-color: #e04f67;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 18px;
+        line-height: 40px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+
+    .form_title h3 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form_title p {
+        color: #999;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        line-height: 14px
+    }
+
+.step {
+    border-left: navajowhite;
+    padding: 0;
+    margin: 0;
+}
+
+    .step .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        font-size: 13px;
+        color: #333;
+        height: 40px;
+        border-radius: 3px;
+    }
+
+    .step .btn_1 {
+        border: none;
+        font-family: inherit;
+        font-size: inherit;
+        color: #fff;
+        background: #008489;
+        cursor: pointer;
+        padding: 7px 20px;
+        display: inline-block;
+        outline: 0;
+        font-size: 13px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        font-weight: 700;
+        margin-top: 15px;
+    }
+
+.busbannering button:hover {
+    background: transparent;
+    border-color: transparent;
+}
+
+.destination-dropdown.v1.bsclinfoset a {
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 1px;
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 10px !important;
+    white-space: inherit;
+}
+
+.flynowpaylater-col a {
+    max-width: 1170px;
+    display: inline-block;
+}
+
+@media(max-width:767px) {
+    ul.info-grantee-col-info.busnesxlandfirstclsinfo li {
+        width: 95%;
+        margin: 1% 2%;
+    }
+
+    .destinantion-block {
+        padding: 15px 0;
+    }
+
+    .section_title.text-center.mb_70.todtrustingiof p {
+        line-height: 20px;
+        margin-top: 5px;
+    }
+
+    .banner.innerbaner {
+        position: relative;
+        padding: 0 0;
+        margin-top: -45px;
+        padding-top: 70px;
+    }
+
+    .flynowpaylater-col a {
+        width: 100%;
+    }
+}
+
+@media(max-width:768px) and (max-width:1024px) {
+    ul.info-grantee-col-info.busnesxlandfirstclsinfo li p {
+        padding: 10px 0;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        min-height: 75px;
+    }
+
+    .customer-care-info h3 {
+        font-size: 24px;
+    }
+
+    .section-made-btn h2 {
+        color: #fff;
+        font-size: 14px;
+    }
+
+        .section-made-btn h2 span {
+            font-size: 12px;
+        }
+
+    div.section-made-btn img {
+        top: 12px;
+    }
+
+    .trending-tour-item {
+        margin-bottom: 15px;
+    }
+
+    .flynowpaylater-col a {
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .contain-frombox {
+        top: -17rem;
+    }
+
+    .form-info-col .form-group {
+        float: left;
+        width: 170px;
+    }
+
+        .form-info-col .form-group.datepickerinfo {
+            width: 120px;
+        }
+
+    .travelers {
+        float: left;
+        width: 234px;
+    }
+
+    #hero {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .box-col-infra {
+        top: 0;
+        margin-bottom: 0;
+    }
+
+    .flynowpaylater-col a {
+        width: 100%;
+    }
+}
+
+section#holisud {
+    margin-bottom: 30px;
+}
+
+
+
+#tabs {
+    background: #007b5e;
+    color: #eee;
+}
+
+    #tabs h6.section-title {
+        color: #eee;
+    }
+
+    #tabs .nav-tabs .nav-item.show .nav-link {
+    }
+
+    #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #f3f3f3;
+        background-color: #0c3161;
+        border-color: transparent transparent #f3f3f3;
+    }
+
+.destinantion-block14.destinantion-v1.border-bottom.border-color-8 {
+    border: none !important;
+}
+
+
+    .destinantion-block14.destinantion-v1.border-bottom.border-color-8 .col-md-12.col-lg-6.mb-3.mb-md-4 {
+        margin-bottom: 0 !important;
+        padding: 0;
+    }
+
+.destinantion-block.destinantion-v1.border-bottom.border-color-8.tbsiningwrap {
+    padding-bottom: 0;
+}
+
+.destinantion-block.destinantion-v1.border-bottom.border-color-8.tbsiningwrap {
+    padding-bottom: 0;
+    border-bottom: none !important;
+}
+
+.tbsiningwrap #nav-tab a.nav-item.nav-link {
+    font-size: 18px;
+}
+
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #eee;
+    font-size: 20px;
+}

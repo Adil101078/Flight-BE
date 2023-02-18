@@ -1,0 +1,507 @@
+
+ <!--Stops Filter-->
+<div class="accordion hg_accordion_element style2" id="accordionExample">
+    <div class="th-accordion">
+
+        <div class="acc-group">
+            <div id="heading25">
+                <a data-toggle="collapse" data-target="#acc25" class="" aria-expanded="true" aria-controls="acc25">
+                    Stops<span class="acc-icon"></span>
+                </a>
+                
+            </div>
+            
+            <div id="acc25" class="collapse show" aria-labelledby="heading25" data-parent=".style2" style="">
+                <div class="card-body pricerange-duration">
+                    
+                    <div class="content" id="stop">
+                        <div class="allnone1">
+                            <ul style="display:flex">
+                                <li class="active" style="cursor: pointer"><span onclick="javascript:checkAllStops('stop')">All</span></li>
+                                <li style="margin-left: 75px; cursor: pointer"><span onclick="javascript:uncheckAllStops('stop')">None</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="form-radio">
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checked="checked" onclick='StopoverFilter(this.id)' id='0'><i class="helper"></i>Direct
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checked="checked" onclick='StopoverFilter(this.id)' id='1'><i class="helper"></i>1 Stop
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checked="checked" onclick='StopoverFilter(this.id)' id='2'><i class="helper"></i>2+ Stops
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checked="checked" onclick='StopoverFilter(this.id)' id='mix'><i class="helper"></i>Mix Stops
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--Price Filter-->
+<!-- <div class="accordion hg_accordion_element style2" id="accordionExample">
+    <div class="th-accordion">
+
+        <div class="acc-group">
+            <div id="heading26">
+                <a data-toggle="collapse" data-target="#prices" class="" aria-expanded="true" aria-controls="prices">
+                    Price USD<span class="acc-icon"></span>
+                </a>
+            </div>
+            <div id="prices" class="collapse show" aria-labelledby="heading26" data-parent=".style2" style="">
+                <div class="content">
+
+                    <div class="pricerange">
+                        <div class="filter_result_wrap">
+                            <div class="range_slider_wrap">
+
+                                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 12.5%; width: 37.5%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 12.5%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                                <p>
+                                    <input type="text" id="amount" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div> -->
+
+<!-- <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-head" id="headingOne">
+                <h2 class="mb-0" data-toggle="collapse" data-target="#prices" aria-expanded="true" aria-controls="prices">
+
+                </h2>
+            </div>
+
+            <div id="prices" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body pricerange">
+                    <div class="filter_result_wrap">
+                        <div class="range_slider_wrap">
+
+                            <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 12.5%; width: 37.5%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 12.5%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                            <p>
+                                <input type="text" id="amount" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> -->
+
+<!--time filter-->
+
+<!-- <div class="accordion hg_accordion_element style2" id="accordionExample">
+    <div class="th-accordion">
+
+        <div class="acc-group">
+            <div id="heading27">
+                <a data-toggle="collapse" data-target="#timerange" class="" aria-expanded="true" aria-controls="prices">
+                    Time Duration<span class="acc-icon"></span>
+                </a>
+            </div>
+            <div id="timerange" class="collapse show" aria-labelledby="heading27" data-parent=".style2" style="">
+                <div class="content">
+
+                    <div class="pricerange-duration">
+                        <div class="filter_result_wrap">
+                            <div class="range_slider_wrap">
+                                <span class="range">Outbound <span>Departure Time</span></span>
+                                <div id="slider-range1" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                                <p>
+                                    <input type="text" id="amount1" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="filter_result_wrap">
+                            <div class="range_slider_wrap">
+                                <span class="range"> <span>Arrival Time</span></span>
+                                <div id="slider-range2" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                                <p>
+                                    <input type="text" id="amount2" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div> -->
+
+<!-- <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-head" id="headingOne">
+                <h2 class="mb-0" data-toggle="collapse" data-target="#timerange" aria-expanded="true" aria-controls="timerange">
+                    Time Duration
+                </h2>
+            </div>
+
+            <div id="timerange" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body pricerange-duration">
+                    <div class="filter_result_wrap">
+                        <div class="range_slider_wrap">
+                            <span class="range">Outbound <span>Departure Time</span></span>
+                            <div id="slider-range1" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                            <p>
+                                <input type="text" id="amount1" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="filter_result_wrap">
+                        <div class="range_slider_wrap">
+                            <span class="range"> <span>Arrival Time</span></span>
+                            <div id="slider-range2" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 50%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 50%;"></span></div>
+                            <p>
+                                <input type="text" id="amount2" readonly="" style="border:0; color:#7A838B; font-weight:400;">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</div> -->
+
+<!--Airport Filter-->
+
+<div class="accordion hg_accordion_element style2" id="accordionExample">
+    <div class="th-accordion">
+        <div class="acc-group">
+            <div id="heading28">
+                <a data-toggle="collapse" data-target="#airport" class="" aria-expanded="true" aria-controls="airport">
+                    Airport<span class="acc-icon"></span>
+                </a>
+            </div>
+            <div id="airport" class="collapse show" aria-labelledby="heading28" data-parent=".style2" style="">
+                <div class="content">
+
+                    <div class="pricerange-duration">
+                        <div class="airportinfois" id="departure">
+                            <% 
+                            function getUniqueListBy(arr, key) {
+                                return [...new Map(arr.map(item => [item[key], item])).values()]
+                            }
+                            let ar = []
+                            let arrival = []
+                            let obj = {}
+                            let obj1 = {}
+                            let finalArray = []
+
+                            const result = data._response.map((e)=>{
+                                const code = e.sectors[0].departure.code
+                                const name = e.sectors[0].departure.name
+                                const filter = data._.filter(e.sectors, data._.matches({ 'group':"0"}))
+                                const last = data._.last(filter)
+                                arrival.push(last)  
+                                obj1 = {
+                                    code,
+                                    name
+                                }
+                                ar.push(obj1)
+                                
+                            })
+                            
+                            for(let e of arrival){
+                                obj = {
+                                    code: e.arrival.code,
+                                    name: e.arrival.name
+                                }
+                                finalArray.push(obj)
+                          
+                            }
+                        
+                            const dep = getUniqueListBy(ar, 'code')
+                            const a = getUniqueListBy(finalArray, "code");
+                            %>
+                            <span> <i class="icon-airplane"></i> <strong>Departure</strong></span>
+                            <div class="checkbox allnone1">
+                                <ul style="display:flex">
+                                    <li class="active" style="cursor: pointer;"><span onclick="javascript:checkAllDeparture('departure')">All</span></li>
+                                    <li style="margin-left: 75px; cursor: pointer"><span onclick="javascript:uncheckAllDeparture('departure')">None</span></li>
+                                
+                                </ul>
+                            </div>
+                            <% for(const d of dep ){%>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" onclick='DepartAirportFilter(this.id)' id='<%=d.code%>'><i class="helper"></i>
+                                        <p class="airport-name-ellipsis">
+                                            <%=d.code%> :  <%=d.name%>
+                                        </p>
+                                    </label>
+                                </div>
+                            <%}%>     
+
+
+                        </div>
+
+                        <!-- <div class="airportinfois" id="departure">
+                            <span> <i class="icon-airplane"></i> <strong>Departure</strong></span>
+                            <div class="allnone">
+            <ul>
+                <li class="active"><a href="javascript:checkAllAirlines('airlines')">All</a></li>
+                <li><a href="javascript:uncheckAllAirlines('airlines')">None</a></li>
+            </ul>
+        </div>
+                            <div class="checkbox allnone1">
+                                <ul style="display:flex">
+                                    <li class="active" style="cursor: pointer;"><span onclick="javascript:checkAllDeparture('departure')">All</span></li>
+                                    <li style="margin-left: 75px; cursor: pointer"><span onclick="javascript:uncheckAllDeparture('departure')">None</span></li>
+                                </ul>
+                            </div>
+                           
+                            @{var dep = Model.Itineraries.Select(s => s.Sectors.FirstOrDefault().Departure.Code).Distinct();
+                                <% for(const d of dep ){%>
+                                foreach (var d in dep)
+                                {
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" checked="checked" onclick='DepartAirportFilter(this.id)' id='<%=d%>'><i class="helper"></i>
+                                                <p class="airport-name-ellipsis">
+                                                    <%=d%> 
+                                                    : <%data._response.map((e)=>{ e.sectors.filter((e)=> e.departure.code == d)})%> @Model.Itineraries.Where(s => s.Sectors.FirstOrDefault().Departure.Code == d).FirstOrDefault().Sectors.FirstOrDefault().Departure.Name
+                                                </p>
+                                        </label>
+                                    </div>
+                                }
+
+                            <%}%>
+
+
+                        </div> -->
+
+                        <div class="airportinfois" id="arrival">
+                            <span class="rtihbo"> <i class="icon-airplane"></i> <strong>Arrival</strong></span>
+
+                            <!-- @{
+                                var arr = Model.Itineraries.Select(s => s.Sectors.FindLast(s => s.Group == "0").Arrival.Code).Distinct(); -->
+                                <div class="checkbox allnone1">
+                                    <ul style="display:flex">
+                                        <li class="active" style="cursor:pointer"><span onclick="javascript:checkAllArrival('arrival')">All</span></li>
+                                        <li style="margin-left:75px; cursor:pointer"><span onclick="javascript:uncheckAllArrival('arrival')">None</span></li>
+                                    </ul>
+                                </div>
+
+                                <% for(let e of a){%>
+                                    <div class="checkbox">
+
+                                        <label>
+                                            <input type="checkbox" checked="checked" onclick='ArrivalAirportFilter(this.id)' id='<%=e.code%>'><i class="helper"></i>
+                                            <p class="airport-name-ellipsis">
+                                                <%=e.code%> : <%=e.name%>
+                                                <!-- @Model.Itineraries.Where(s => s.Sectors.FindLast(s => s.Group == "0").Arrival.Code == a).FirstOrDefault().Sectors.FirstOrDefault().Arrival.Name -->
+                                            </p>
+                                        </label>
+                                    </div>
+                                <%}%>
+                            
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- <div class="accordion " id="accordionExample">
+        <div class="card">
+            <div class="card-head" id="headingOne">
+                <h2 class="mb-0" data-toggle="collapse" data-target="#airport" aria-expanded="true" aria-controls="airport">
+                    Airport
+                </h2>
+            </div>
+
+            <div id="airport" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body pricerange-duration">
+
+                    <div class="airportinfois">
+                        <span> <i class="icon-airplane"></i> Departure</span>
+                        @{var dep = Model.Itineraries.Select(s => s.Sectors.FirstOrDefault().Departure.Code).Distinct();
+
+                            foreach (var d in dep)
+                            {
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" onclick='DepartAirportFilter(this.id)' id='@d'><i class="helper"></i>@d
+                                    </label>
+                                </div>
+                            }
+
+                        }
+
+
+                    </div>
+
+                    <div class="airportinfois">
+                        <span class="rtihbo"> <i class="icon-airplane"></i>  Arrivel</span>
+                        @{
+                            var arr = Model.Itineraries.Select(s => s.Sectors.FindLast(s => s.Group == "0").Arrival.Code).Distinct();
+
+                            foreach (var a in arr)
+                            {
+                                <div class="checkbox">
+
+                                    <label>
+                                        <input type="checkbox" checked="checked" onclick='ArrivalAirportFilter(this.id)' id='@a'><i class="helper"></i>@a
+                                    </label>
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+</div> -->
+
+<!--Airline Filter-->
+
+
+<div class="accordion  hg_accordion_element style2 col-12 d-none d-sm-block" style="padding-right:0px!important;padding-left:0px!important" id="accordionExample">
+    <div class="th-accordion">
+        <div class="acc-group">
+            <div id="heading29">
+                <a data-toggle="collapse" data-target="#airlines" class="" aria-expanded="true" aria-controls="airlines">
+                    Airline<span class="acc-icon"></span>
+                </a>
+            </div>
+        </div>
+        <div id="airlines" class="" aria-labelledby="heading29" data-parent="#accordionExample">
+            <div class="card-body pricerange-duration">
+                <div class="allnone">
+                    <ul>
+                        <li class="active"><a href="javascript:checkAllAirlines('airlines')">All</a></li>
+                        <li><a href="javascript:uncheckAllAirlines('airlines')">None</a></li>
+                    </ul>
+                </div>
+                <div class="airportinfois">
+                    <%
+                    let air = []
+                     if(data._response.length > 0){
+                        for(let e of data._response){
+                            let a = e.sectors
+                            for(let ele of a){
+                              obj = {
+                                airlineCode: ele.airlineCode,
+                                airlineName: ele.airlineName,
+                                total: e.grandTotal,
+                                group:ele.group
+                              }
+                              air.push(obj)
+                            }
+                          }
+                     }
+                     const airv = getUniqueListBy(air, "airlineCode");
+                    %>
+                    <!-- @{
+                        if (Model.Itineraries.Count() > 0)
+                        {
+                            IEnumerable<Itinerary> air = new List<Itinerary>();
+                            if (Model.Itineraries.FirstOrDefault().Sectors.FindAll(g => g.Group == "1").Count() > 0)
+                            {
+                                air = Model.Itineraries.DistinctBy(x => new { x.Sectors[0].AirlineCode, airv = x.Sectors.Find(g => g.Group == "1").AirlineCode });
+                            }
+                            else
+                            {
+                                air = Model.Itineraries.DistinctBy(x => new { x.Sectors[0].AirlineCode });
+                                // air = Model.Itineraries.Select(s => s.Sectors.FirstOrDefault().AirlineCode).Distinct();
+                            } -->
+
+                            <%for(let e of airv){%>
+                            <!-- foreach (var ai in air)
+                            { -->
+                                <div class="checkbox">
+                                   
+                                    <!-- @if (ai.Sectors.FindAll(g => g.Group == "1").Count() > 0)
+                                    {
+                                        if (ai.Sectors[0].AirlineCode == ai.Sectors.Find(g => g.Group == "1").AirlineCode)
+                                        {
+                                            <label>
+                                                <input type="checkbox" checked="checked" onclick='AirlineFilter(this.id)' id='@ai.Sectors[0].AirlineCode'><i class="helper"></i> <p class="airport-name-ellipsis"> @ai.Sectors[0].AirlineName</p> <p> <a href="javascript:onlyAirline('airlines','@ai.Sectors[0].AirlineCode')" class="hide">only</a></p>
+                                                <span>@Constraint.CurrencySymble@ai.GrandTotal</span>
+
+                                            </label>
+                                        }
+                                        else
+                                        {
+                                            <label>
+                                                <input type="checkbox" checked="checked" onclick='AirlineFilter(this.id)' id='@ai.Sectors[0].AirlineCode-@ai.Sectors.Find(g => g.Group == "1").AirlineCode'><i class="helper"></i><p class="airport-name-ellipsis"> @ai.Sectors[0].AirlineName, @ai.Sectors.Find(g => g.Group == "1").AirlineName</p> <p> <a href="javascript:onlyAirline('airlines','@ai.Sectors[0].AirlineCode-@ai.Sectors.Find(g => g.Group == "1").AirlineCode')" class="hide">only</a></p>
+                                                <span>@Constraint.CurrencySymble@ai.GrandTotal</span>
+
+                                            </label>
+                                        }
+                                    }
+                                    else
+                                    { -->
+                                        <label>
+                                            <input type="checkbox" checked="checked" onclick='AirlineFilter(this.id)' id='<%=e.airlineCode%>'><i class="helper"></i> <p class="airport-name-ellipsis"><%=e.airlineName%></p> <p> <a href="javascript:onlyAirline('airlines','<%=e.airlineCode%>')" class="hide">only</a></p>
+                                            <span>$<%=e.total%></span>
+
+                                        </label>
+                                    
+
+                                </div>
+
+                            <%}%>
+                        <!-- }
+                    } -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .airport-name-ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 125px;
+    }
+</style>

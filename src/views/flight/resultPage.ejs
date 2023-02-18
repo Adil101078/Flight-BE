@@ -1,0 +1,880 @@
+<%- include('../partials/LayoutHeader')%>
+<%- include('../partials/header')%>
+<link rel="stylesheet" href="css/result.css" type="text/css" media="all">
+
+<!-- Page Sub-Header -->
+<div id="page_header" class="page-subheader site-subheader-cst">
+    <div class="bgback"></div>
+    <!-- Background source -->
+    <div class="kl-bg-source">
+        <!-- Gradient overlay -->
+        <div class="kl-bg-source__overlay" style="background: rgba(0,94,176,1); background: -moz-linear-gradient(left, rgba(0,94,176,1) 0%, rgba(0,202,255,1) 100%); background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,94,176,1)), color-stop(100%,rgba(0,202,255,1))); background: -webkit-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: -o-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: -ms-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: linear-gradient(to right, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%);">
+        </div>
+        <!--/ Gradient overlay -->
+    </div>
+    <!--/ Background source -->
+    <!-- Animated Sparkles -->
+    <div class="th-sparkles"></div>
+    <!--/ Animated Sparkles -->
+    
+    <!-- Sub-header Bottom mask style 3 -->
+    
+    <!--/ Sub-header Bottom mask style 3 -->
+</div>
+<!--/ Page sub-header -->
+
+<section class="hg_section pt-100">
+    
+    <div class="fare-wrapper">
+        <%- include('../partials/ModifySearch')%>
+        <div class="container">
+
+            <div class="row  mt-100">
+
+                <div class="col-sm-4 col-md-4 col-lg-3 hidden-xxs">
+                    <div class="sidebar-filtter fr-dt">
+                        <h2>
+                            <i class="icon-filter"></i> <strong>Filter your results</strong>
+                            
+                            <span><%=data._response.length%> <%=data._response.length > 1 ? 'results':'result'%> </span>
+                        </h2>
+                        <h2>
+                            <a href="https://www.trustpilot.com/review/cheapfaresus.com"><img class="ca-icon-img contain-fit-img" src="/images/trustpilot.jpeg" style="width:200px"></a>
+                        </h2>
+                        <%- include('./resultFilter')%>
+
+
+                    </div>
+                    <div class="sidebar-filtter fr-dt">
+                        <%- include('../partials/WhyBookWithUs')%>
+                    </div>
+                </div>
+               
+
+                    <div class="col-sm-8 col-md-8 col-lg-9 col-12">
+
+                        <!--Flight Result-->
+                        <!-- var minPrice = 0.0; var maxPrice = 0.0
+                            if (data._response.length > 0){
+
+                            minPrice = data._response.map;
+                            maxPrice = Model.Itineraries.Max(t => t.GrandTotal);
+
+                            foreach (Itinerary i in Model.Itineraries)
+                            {
+                                var airIds = ""; var dp = ""; var ar = ""; var stp = "";
+                                if (i.Sectors.FindAll(g => g.Group == "1").Count() > 0)
+                                {
+                                    var ow = i.Sectors.FindAll(g => g.Group == "0").Count();
+                                    var rt = i.Sectors.FindAll(g => g.Group == "1").Count();
+                                    if (i.FareType == "specialoffer")
+                                    {
+
+                                        stp = i.ViaPoints == "" ? "0" : i.ViaPoints;
+                                    }
+                                    else
+                                    {
+                                        if (ow == rt)
+                                        {
+                                            stp = (ow - 1).ToString();
+                                        }
+                                        else
+                                        {
+                                            stp = "mix";
+                                        }
+                                    }
+
+                                    if (i.Sectors[0].AirlineCode == i.Sectors.Find(g => g.Group == "1").AirlineCode)
+                                    {
+                                        airIds = i.Sectors[0].AirlineCode;
+
+                                    }
+                                    else
+                                    {
+                                        airIds = i.Sectors[0].AirlineCode + "-" + i.Sectors.Find(g => g.Group == "1").AirlineCode;
+
+                                    }
+                                    dp = i.Sectors[0].Departure.Code;
+                                    ar = i.Sectors.Find(g => g.Group == "1").Departure.Code;
+                                }
+                                else
+                                {
+                                    airIds = i.Sectors[0].AirlineCode;
+                                    dp = i.Sectors[0].Departure.Code;
+                                    stp = (i.Sectors.Count() - 1).ToString();
+                                } -->
+
+
+                                <!-- if (i.FareType.ToLower() != "specialoffer")
+                                { -->
+                                <%
+                                    function find({ sector, group, isFirst= false}){
+                                        const arr = sector.filter((e)=> e.group === group)
+                                        let result
+                                        if(!isFirst){
+                                            result = data._.last(arr)
+                                            
+                                        } else{
+                                            result = arr[0]
+                                        }
+                                       
+                                        return result
+                                      }
+
+                                      function findSector({ sector, group }){
+                                        return sector.filter((e)=> e.group == group)
+                                        
+                                      }
+                                     
+                                %>
+                                  
+                                    <% for(const e of data._response){%>
+                                       <% let obj = {}
+                                        var airIds = "";
+                                        var dp = "";
+                                        var ar = "";
+                                        var stp = "";
+                                        
+                                        if (findSector({ sector: e.sectors, group: "1" }).length > 0) {
+                                          var ow = findSector({ sector: e.sectors, group: "0" }).length;
+                                          var rt = findSector({ sector: e.sectors, group: "1" }).length;
+                                          if (e.fareType == "specialoffer") {
+                                            stp = e.ViaPoints == "" ? "0" : e.ViaPoints;
+                                          } else {
+                                            if (ow == rt) {
+                                              stp = (ow - 1).toString();
+                                            } else {
+                                              stp = "mix";
+                                            }
+                                          }
+                                          if (e.sectors[0].airlineCode == find({ sector: e.sectors, group:"1"}).airlineCode){
+                                                airIds = e.sectors[0].airlineCode;
+                                    
+                                          }else{
+                                                airIds = e.sectors[0].airlineCode + "-" + find({ sector: e.sectors, group:"1"}).airlineCode
+                                    
+                                          }
+                                            dp = e.sectors[0].departure.code;
+                                            ar = find({ sector: e.sectors, group:"1"}).departure.code;
+                                        } else{
+                                            airIds = e.sectors[0].airlineCode;
+                                            dp = e.sectors[0].departure.code;
+                                            stp = (e.sectors.length - 1).toString()
+                                        }
+                                        %>
+                                    <div class="fare-reapeat-col cls<%=airIds%> dep<%=dp%> arr<%=ar%> stp<%=stp%>" >
+                                    <!-- string.Format("cls{0} dep{1} arr{2} stp{3}, airIds, dp, ar, stp) -->
+
+                                        <div class="left-fare-wrp">
+                                            <div class="collapsed " data-toggle="collapse" href="#flightdetails_<%=e.uid%>" onclick="javascript:scrollIt('<%=e.uid%>')" aria-expanded="false" style="height: 175px">
+                                                <!--oneway-->
+                                                <div class="deprt-fare">
+                                                    <div class="airlin-logo">
+                                                        <img src="https://images.kiwi.com/airlines/64x64/<%=find({sector: e.sectors, group: '0', isFirst: true}).airlineCode%>.png">
+                                                        <span><%=e.sectors[0].airlineName%></span>
+                                                    </div>
+
+                                                    <% const _viaPoint =findSector({ sector: e.sectors, group: '0'})
+                                                        const viapoint = data._.map(_viaPoint, 'arrival.code')
+                                                    %>
+                                                    
+                                                    <div class="fare-dt-cnr">
+                                                        <span class="fr-dt">
+                                                            <strong title="<%=find({sector: e.sectors, group: '0', isFirst: true}).departure.cityName%> <%=find({sector: e.sectors, group: '0', isFirst: true}).departure.name%>"><%=find({sector: e.sectors, group: "0", isFirst: true}).departure.code%></strong> <span class="dr-tion">
+                                                                <%if (viapoint.length > 1){%>
+                                                                   <% viapoint.pop() %>
+                                                                    <i class="fa fa-arrow-right"></i>
+                                                                     <em><%=viapoint.join()%></em> 
+                                                                <%}%>
+                                                            </span><strong title="<%=find({sector: e.sectors, group: '0'}).arrival.cityName%>"><%=find({sector: e.sectors, group: "0"}).arrival.code%> </strong>
+                                                        </span>
+                                                        <span class="dte-infoset"> 
+                                                            <span class="dte-infoset"> Journey Time <br /><%=find({sector: e.sectors, group: "0"}).travelTime%></span></span>
+                                                        <p>
+                                                            <span class="timedurtion">
+    
+                                                                <%=data.moment(find({sector: e.sectors, group: "0", isFirst: true }).departure.time, "HH:mm").format("hh:mm A")%>
+                                                                <span>
+                                                                    <sup style="font-weight: 600; color: #00affe;">
+                                                                        <%=data.moment(find({sector: e.sectors, group: "0", isFirst: true }).departure.date, 'DD-MM-YYYY').format("MMM DD")%>
+                                                                    </sup>
+                                                                </span><em class="overley-break"></em>
+                                                                <i class="fa fa-long-arrow-right"></i>
+                                                                <%=data.moment(find({sector: e.sectors, group: "0"}).arrival.time, "HH:mm").format("hh:mm A")%>
+                                                                <span>
+                                                                    <sup style="font-weight: 600; color: #00affe;">
+                                                                        <%=data.moment(find({sector: e.sectors, group: "0" }).arrival.date, 'DD-MM-YYYY').format("MMM DD")%>
+                                                                    </sup>
+                                                                </span><em class="overley-break"></em>
+                                                            </span>
+                                                        </p>
+                                                       
+                                                       
+                                                    </div>
+                                                   
+
+                                                    <div class="cls-tt-psgnr">
+                                                        <%
+                                                     
+                                                        %>
+                                                        <span class="cls-tick"><strong><%=findSector({ sector: e.sectors, group: '0'}).length - 1 == 0 ?'Direct': findSector({ sector: e.sectors, group: '0'}).length - 1 + ' ' +'Stop'%></strong> Class: <%=find({sector: e.sectors, group: '0', isFirst: true}).cabinClass%>  </span>
+
+                                                    </div>
+                                                   
+
+                                                </div>
+
+                                                <!--return way-->
+                                                
+                                                <% if (data.jType === 'Return'){%>
+                                                
+                                                    <div class="deprt-fare">
+                                                        <div class="airlin-logo">
+                                                            <img src="https://images.kiwi.com/airlines/64x64/<%=find({sector: e.sectors, group: '1', isFirst: true}).airlineCode%>.png">
+                                                            <span><%=find({sector: e.sectors, group: '1'}).airlineName%></span>
+                                                        </div>
+                                                        <% const _rviaPoint =findSector({ sector: e.sectors, group: '1'})
+                                                            const rviapoint = data._.map(_rviaPoint, 'arrival.code')
+                                                             %>
+
+                                                        <div class="fare-dt-cnr">
+                                                            <span class="fr-dt">
+                                                                <strong title="<%=find({sector: e.sectors, group: '1', isFirst: true}).departure.cityName%> <%=find({sector: e.sectors, group: '1', isFirst: true}).departure.name%>"><%=find({sector: e.sectors, group: "1", isFirst: true}).departure.code%></strong> <span class="dr-tion">
+                                                                    <%if (rviapoint.length > 1){%>
+                                                                        <% rviapoint.pop()%>
+                                                                        <i class="fa fa-arrow-right"></i> <em><%=rviapoint.join()%></em>
+                                                                    <%}%>
+                                                                </span><strong title="<%=find({sector: e.sectors, group: '1'}).arrival.cityName%>"><%=find({sector: e.sectors, group: "1"}).arrival.code%> </strong>
+                                                            </span>
+                                                            <span class="dte-infoset"> <span class="dte-infoset"> Journey Time <br /><%=find({ sector: e.sectors, group: '1', isFirst: true}).travelTime%></span><i class="icon-calendar3"></i>
+                                                            <!-- Convert.ToDateTime(i.Sectors.Find(s => s.Group == "1").Departure.Date, new System.Globalization.CultureInfo("en-GB")).ToString("ddd, MMM dd yyyy") -->
+                                                        </span>
+
+                                                            <p>
+                                                                <span class="timedurtion">
+    
+                                                                    <%=data.moment(find({sector: e.sectors, group: "1", isFirst: true }).departure.time, "HH:mm").format("hh:mm A")%>
+                                                                    <span>
+                                                                        <sup style="font-weight: 600; color: #00affe;">
+                                                                            <%=data.moment(find({sector: e.sectors, group: "1", isFirst: true }).departure.date, 'DD-MM-YYYY').format("MMM DD")%>
+                                                                        </sup>
+                                                                    </span><em class="overley-break"></em>
+                                                                    <i class="fa fa-long-arrow-right"></i>
+                                                                    <%=data.moment(find({sector: e.sectors, group: "1" }).arrival.time, "HH:mm").format("hh:mm A")%>
+                                                                    <span>
+                                                                        <sup style="font-weight: 600; color: #00affe;">
+                                                                            <%=data.moment(find({sector: e.sectors, group: "1"}).arrival.date, 'DD-MM-YYYY').format("MMM DD")%>
+                                                                        </sup>
+                                                                    </span><em class="overley-break"></em>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="cls-tt-psgnr">
+                                                            <span class="cls-tick"><strong><%=findSector({ sector: e.sectors, group: '1'}).length -1 === 0 ?'Direct': findSector({ sector: e.sectors, group: '1'}).length - 1 + ' ' +'Stop'%></strong> Class: <%=find({sector: e.sectors, group: '1', isFirst: true}).cabinClass%>  </span>
+
+                                                           
+                                                        </div>
+
+                                                    </div> 
+                                                <% }%>
+                                            </div>
+                                            <!--details-->
+                                            <!-- {
+                                                var checkinBag = i.Sectors.FirstOrDefault().BaggageInfo.Replace("Kilograms", "Kg");
+                                                if (i.Sectors.FirstOrDefault().BaggageInfo == "0")
+                                                {
+                                                    checkinBag = "No Check-in Baggage";
+                                                }
+                                                else if (i.Sectors.FirstOrDefault().BaggageInfo == "1" || i.Sectors.FirstOrDefault().BaggageInfo == "2")
+                                                {
+                                                    checkinBag = i.Sectors.FirstOrDefault().BaggageInfo + "Pcs";
+                                                }
+                                                else
+                                                {
+                                                    checkinBag = i.Sectors.FirstOrDefault().BaggageInfo.Replace("Kilograms", "Kg");
+                                                }
+                                            } -->
+                                            <div class="flt-detls" id="<%=e.uid%>">
+                                                <ul style="margin-top: 67px;">
+                                                    <li>
+                                                       <a style="background-color: #49d071;" type="button" href="javascript:void(0)" asp-controller="flights" asp-action="results" asp-route-sid="i.SearchID" asp-route-alt="_alt">Other timing</a>
+                                              
+                                                    </li>
+                                                </ul>
+                                                <br>
+
+                                                <div id="accordion" class="accordion flightdetails_1<%=e.uid%>">
+
+                                                    <div style="margin-top: 29px;" class="card-header fltdtllink collapsed" data-toggle="collapse" href="#flightdetails_1<%=e.uid%>" aria-expanded="false">
+                                                        <a href="javacript:void(0)" class="card-title">Flight Details </a>
+                                                    </div>
+                                                    <div id="flightdetails_1<%=e.uid%>" class="card-body collapse" data-parent="#accordion" style="">
+                                                        <!--outbond details-->
+                                                        <div class="fl-left-flight-dt">
+
+                                                            <h4 class="fl-heading-col">
+                                                                <i class="icon-airplane"></i>Outbound, <%=data.moment(find({sector: e.sectors, group: "0", isFirst: true}).departure.date, 'DD-MM-YYYY').format('ddd, MMM DD YYYY')%>
+                                                                <span>Duration: <%=find({sector: e.sectors, group: '0', isFirst: true }).travelTime.replace(':', 'h')%>m</span>
+                                                            </h4>
+
+                                                            <div class="fl-depart-cl">
+                                                                <%
+                                                                    let _sector = findSector({ sector: e.sectors, group: '0', isFirst: true })
+                                                                %>
+                                                                <% for(let s of _sector){%>
+                                                                    <%  if (s.transitTime != null && s.transitTime.time != "") {%>
+                                                                   
+                                                                        <div class="lt-br-col">
+                                                                            <div class="line-broke"></div>
+                                                                            <div class="duration-col">
+                                                                                <%=s.transitTime.timeDes%>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    <%}%>
+
+                                                                    <div class="depar-lft-boxinfo">
+                                                                        <div class="lft-fst-c">
+                                                                            <span class="dep-time">
+                                                                                <strong><%=data.moment(s.departure.time, "HH:mm").format("hh:mm A")%></strong>
+                                                                                <%=data.moment(s.departure.date, 'DD-MM-YYYY').format('ddd, MMM DD')%>
+
+                                                                            </span>
+                                                                            <span class="break-point">
+                                                                                <img src="images/clockp.jpg" alt="">
+                                                                                <span>Flying Time</span>
+                                                                                <span><%=s.flyingTime.replace(":", "h")%>m</span>
+                                                                            </span>
+
+                                                                            <span class="dep-time">
+                                                                                <strong><%=data.moment(s.arrival.time, "HH:mm").format("hh:mm A")%></strong>
+                                                                                <%=data.moment(s.arrival.date, 'DD-MM-YYYY').format('ddd, MMM DD')%>
+
+                                                                            </span>
+
+                                                                        </div>
+                                                                        <div class="air-plane-col"></div>
+                                                                        <div class="flydierstinfo">
+                                                                            <span class="devihkr">
+                                                                                <strong><%=s.departure.code%></strong>
+                                                                                <%=s.departure.name%>, <%=s.departure.countryName%>
+                                                                            </span>
+
+                                                                            <span class="airlinbrake">
+                                                                                <img src="https://images.kiwi.com/airlines/32x32/<%=s.airlineCode%>.png" alt="<%=s.airlineName%>"><strong style="color: #426196;"><%=s.airlineName%></strong><br>
+                                                                                <b>Flt Number:</b><%=s.airlineCode%> <%=s.fltNum%><br>
+                                                                                <b>Class:</b> <%=s.cabinClass%><br>
+                                                                                <%if (s.equipType != null || s.equipType != ""){%>
+                                                                                
+                                                                                    <b>Aircraft</b> <span>type:</span> <%=s.equipType%>
+                                                                                <%}%>
+                                                                            </span>
+
+                                                                            <span class="devihkr">
+                                                                                <strong><%=s.arrival.code%></strong>
+                                                                                <%=s.arrival.name%>, <%=s.arrival.countryName%>
+                                                                            </span>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                <%}%>
+
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <!--inbound details-->
+                                                        <%
+                                                            let sector1 = findSector({ sector: e.sectors, group: '1'})
+                                                        %>
+                                                       <% if (sector1.length > 0){%>
+                                                            <div class="rt-right-flight-dt">
+                                                                <h4 class="fl-heading-col arrfontde">
+                                                                    <i class="icon-airplane"></i>Inbound, <%=data.moment(find({sector: e.sectors, group: "1", isFirst: true}).departure.date, 'DD-MM-YYYY').format('ddd, MMM DD YYYY')%>
+                                                                    <span>Duration: <%=find({sector: e.sectors, group: '1', isFirst: true }).travelTime.replace(':', 'h')%>m</span>
+                                                                </h4>
+                                                                <div class="fl-depart-cl">
+                                                                    
+                                                                    <% for(let s of sector1){%>
+                                                                        <%  if (s.transitTime != null && s.transitTime.time != "") {%>
+                                                                       
+                                                                            <div class="lt-br-col">
+                                                                                <div class="line-broke"></div>
+                                                                                <div class="duration-col">
+                                                                                    <%=s.transitTime.timeDes%>
+                                                                                </div>
+    
+                                                                            </div>
+                                                                        <%}%>
+    
+                                                                        <div class="depar-lft-boxinfo">
+                                                                            <div class="lft-fst-c">
+                                                                                <span class="dep-time">
+                                                                                    <strong><%=data.moment(s.departure.time, "HH:mm").format("hh:mm A")%></strong>
+                                                                                    <%=data.moment(s.departure.date, 'DD-MM-YYYY').format('ddd, MMM DD')%>
+    
+                                                                                </span>
+                                                                                <span class="break-point">
+                                                                                    <img src="images/clockp.jpg" alt="">
+                                                                                    <span>Flying Time</span>
+                                                                                    <span><%=s.flyingTime.replace(":", "h")%>m</span>
+                                                                                </span>
+    
+                                                                                <span class="dep-time">
+                                                                                    <strong><%=data.moment(s.arrival.time, "HH:mm").format("hh:mm A")%></strong>
+                                                                                    <%=data.moment(s.arrival.date, 'DD-MM-YYYY').format('ddd, MMM DD')%>
+    
+                                                                                </span>
+    
+                                                                            </div>
+                                                                            <div class="air-plane-col"></div>
+                                                                            <div class="flydierstinfo">
+                                                                                <span class="devihkr">
+                                                                                    <strong><%=s.departure.code%></strong>
+                                                                                    <%=s.departure.name%>, <%=s.departure.countryName%>
+                                                                                </span>
+    
+                                                                                <span class="airlinbrake">
+                                                                                    <img src="https://images.kiwi.com/airlines/32x32/<%=s.airlineCode%>.png" alt="<%=s.airlineName%>"><strong style="color: #426196;"><%=s.airlineName%></strong><br>
+                                                                                    <b>Flt Number:</b><%=s.airlineCode%> <%=s.fltNum%><br>
+                                                                                    <b>Class:</b> <%=s.cabinClass%><br>
+                                                                                    <%if (s.equipType != null || s.equipType != ""){%>
+                                                                                    
+                                                                                        <b>Aircraft</b> <span>type:</span> <%=s.equipType%>
+                                                                                    <%}%>
+                                                                                </span>
+    
+                                                                                <span class="devihkr">
+                                                                                    <strong><%=s.arrival.code%></strong>
+                                                                                    <%=s.arrival.name%>, <%=s.arrival.countryName%>
+                                                                                </span>
+    
+                                                                            </div>
+    
+                                                                        </div>
+                                                                    <%}%>
+    
+    
+                                                                </div>
+                                                            </div>
+                                                       <%}%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--pricing-->
+                                        <div class="rgt-price-wrp">
+                                            <h2>$<%=(e.grandTotal/data.TotalPassengers).toFixed(2)%></h2>
+                                            <p>
+                                                Price per person
+                                                <span>
+                                                  <%=data.jType == 'r'? 'Return': 'Oneway'%>
+                                                </span>
+                                            </p>
+                                            <!-- <button class="btn">Select</button> -->
+                                            <!-- <form method="post"> -->
+                                                <button id="<%=e.uid%>" type="submit" value="<%=e.uid%>" onclick="RedirectToPassengerDetail()" class="btn">Select</button>
+                                            <!-- </form> -->
+                                           
+
+                                        </div>
+
+
+                                    </div>
+                             
+                                <%}%>
+                                <!-- } -->
+                                <!-- else
+                                { -->
+
+                                    <!--special offer-->
+                                    <!-- <div class="fare-reapeat-col fare-phoneOnly-col string.Format("cls{0} dep{1} arr{2} stp{3}", airIds, dp, ar, stp)">
+
+                                        <div class="left-fare-wrp"> -->
+
+                                            <!--oneway-->
+                                            <!-- <div class="deprt-spl-fare">
+                                                <div class="airlin-logo">
+                                                    <img src="String.Format("https://images.kiwi.com/airlines/64x64/{0}.png", i.Sectors.FirstOrDefault().AirlineCode)" alt="i.Sectors.FirstOrDefault().AirlineCode">
+                                                    <span>i.Sectors.FirstOrDefault().AirlineName</span>
+                                                </div>
+
+                                                {var viapoint = i.ViaPoints ?? "";
+                                                }
+                                                <div class="fare-dt-cnr">
+                                                    <span class="fr-dt">
+                                                        <strong>i.Sectors.FirstOrDefault().Departure.Code</strong> <span class="dr-tion">
+                                                            if (viapoint?.Length > 1)
+                                                            {<i class="fa fa-arrow-right"></i> <em> viapoint</em>}
+                                                        </span><strong>i.Sectors.FindLast(s => s.Group == "0").Arrival.Code </strong>
+                                                    </span>
+
+
+                                                    <p>
+                                                        <span class="timedurtion">
+                                                            { var daydif1 = (Convert.ToDateTime(i.Sectors.Find(s => s.Group == "0").Departure.Date, new System.Globalization.CultureInfo("en-GB")) - Convert.ToDateTime(i.Sectors.FindLast(s => s.Group == "0").Arrival.Date, new System.Globalization.CultureInfo("en-GB"))).TotalDays;
+
+                                                        var days1 = daydif1 > 0 ? "+ " + daydif1 + "d" : "";
+                                                    }
+
+                                                            Convert.ToDateTime(i.Sectors.FirstOrDefault().Departure.Date, new System.Globalization.CultureInfo("en-GB")).ToString("MMM dd") <span><sup style="font-weight: 600; color: #00affe;"></sup></span><i class="fa fa-long-arrow-right"></i> i.Sectors.FindLast(s => s.Group == "0").Arrival.Time <span>Convert.ToDateTime(i.Sectors.FirstOrDefault().Arrival.Date, new System.Globalization.CultureInfo("en-GB")).ToString("MMM dd")<sup style="font-weight: 600; color: #00affe;"></sup></span><em class="overley-break">days1</em>
+                                                        </span>
+                                                    </p>
+                                                </div>
+
+                                                <div class="cls-tt-psgnr">
+                                                    { var stops = string.IsNullOrEmpty(i.ViaPoints) ? "Direct" : i.ViaPoints.Split(",").Count() <= 0 ? "Direct" : i.ViaPoints.Split(",").Count() == 1 ? "1 Stop" : i.ViaPoints.Split(",").Count() - 1 + " Stop(s)";}
+                                                    <span class="cls-tick"><strong>stops</strong> Class: i.Sectors.FirstOrDefault().CabinClass  </span>
+
+                                                </div>
+
+                                            </div> -->
+
+                                            <!--return way-->
+                                            <!-- if (i.Sectors.FindAll(s => s.Group == "1").Count() > 0) -->
+                                            <!-- { -->
+                                                <!-- <div class="deprt-spl-fare">
+                                                    <div class="airlin-logo">
+                                                        <img src="String.Format("https://images.kiwi.com/airlines/64x64/{0}.png", i.Sectors.Find(s => s.Group == "1").AirlineCode)" alt="i.Sectors.Find(s => s.Group == "1").AirlineCode">
+                                                        <span>i.Sectors.Find(s => s.Group == "1").AirlineName</span>
+                                                    </div>
+                                                    {var rviapoint = i.ViaPoints ?? "";
+                                                    }
+
+                                                    <div class="fare-dt-cnr">
+                                                        <span class="fr-dt">
+                                                            <strong>i.Sectors.Find(s => s.Group == "1").Departure.Code</strong> <span class="dr-tion">
+                                                                if (rviapoint.Length > 1)
+                                                                {<i class="fa fa-arrow-right"></i> <em> rviapoint</em>}
+                                                            </span> <strong>i.Sectors.FindLast(s => s.Group == "1").Arrival.Code </strong>
+                                                        </span>
+
+
+                                                        <p>
+                                                            <span class="timedurtion">
+
+                                                                Convert.ToDateTime(i.Sectors.Find(s => s.Group == "1").Departure.Date, new System.Globalization.CultureInfo("en-GB")).ToString("MMM dd") <span><sup style="font-weight: 600; color: #00affe;"></sup></span><i class="fa fa-long-arrow-right"></i>i.Sectors.FindLast(s => s.Group == "1").Arrival.Time <span>Convert.ToDateTime(i.Sectors.Find(s => s.Group == "1").Arrival.Date, new System.Globalization.CultureInfo("en-GB")).ToString("MMM dd")<sup style="font-weight: 600; color: #00affe;"></sup></span><em class="overley-break"> days</em>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="cls-tt-psgnr">
+                                                        { var returnStops = string.IsNullOrEmpty(i.ViaPoints) ? "Direct" : i.ViaPoints.Split(",").Count() <= 0 ? "Direct" : i.ViaPoints.Split(",").Count() == 1 ? "1 Stop" : i.ViaPoints.Split(",").Count() - 1 + " Stop(s)";}
+                                                        <span class="cls-tick"><strong>returnStops</strong> Class: i.Sectors.Find(s => s.Group == "1").CabinClass  </span>
+
+                                                    </div>
+
+                                                </div> -->
+                                            <!-- } -->
+
+                                            <!-- <div class="flt-detls">
+                                                <div class="phoneOnlyNumber">
+                                                    <span class="phone-offer d-md-none d-lg-none d-xl-none d-sm-none" style="background-color:#213976!important;"><a href="tel:Constraint.Contact1" style="color:#ffcb00"><strong>Constraint.Contact1</strong></a></span>
+                                                </div>
+                                                <div class="phoneOnly">
+                                                    <span class="phone-offer"><a href="tel:Constraint.Contact1" style="color:#213976"><strong><img src="images/phone-icon.png">Phone Only Deal</strong></a></span>
+                                                </div>
+
+                                            </div> -->
+
+                                        <!-- </div> -->
+
+                                        <!--pricing-->
+                                        <!-- <div class="rgt-price-wrp">
+                                            <h2>i.CurrencySymbol(String.Format("{0:0.00}", i.GrandTotal / i.PriceBreakup.Sum(p => p.NoOfPassenger)))</h2>
+                                            <p>
+                                                Price per person
+                                                <span>
+                                                    { var tripType = i.Sectors.Select(g => g.Group).Distinct().Count() == 2 ? "Round Trip" : "Oneway Trip";}
+                                                    tripType
+                                                </span>
+                                            </p>
+
+
+                                            <a class="btn" style=" background-color: #f9c541; font-weight: 600; color: #213976; float: auto; border-bottom: 2px solid #f9c541;" href="tel:Constraint.Contact1">Call Now</a>
+
+                                            <div class="flt-detls d-none d-sm-block" style="padding-top:7px"><ul><li><a href="tel:Constraint.Contact1">Constraint.Contact1</a></li></ul></div>
+                                        </div> -->
+
+
+                                    <!-- </div> -->
+
+                                    <!--//special offer-->
+
+                                <!-- } -->
+
+                            <!-- }
+
+                        } -->
+                        <!-- else
+                        { -->
+                            <!-- <div class="row resul-page-info">
+                                <div class="col-md-12 col-lg-12 col-12">
+                                    <div class="searc-fly-opt">
+                                        <h2>Available flights not found</h2>
+                                        <p>
+                                            <strong>Sorry system could not found any available fare as per your searching criteria, please change it and search again  </strong>
+                                        </p>
+                                        <p><strong> or you can call our travel expert on <a class="kl-iconbox__title" href="tel:Constraint.Contact1">Constraint.Contact1</a> to find out best deals for you.</strong></p>
+                                    </div>
+                                </div>
+
+                            </div> -->
+
+                        <!-- } -->
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</section>
+
+<style>
+    .page-subheader {
+        min-height: 325px;
+        background-color: #066fd9;
+    }
+    .col-md-4  {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    .allnone1 {
+        display: block;
+        /* float: left; */
+        width: 100%;
+    }
+</style>
+
+     <!-- <script src="js/searchValidation.js" type="text/javascript"></script> -->
+     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script> --> -->
+    <script src="js/range.js" type="text/javascript"></script>
+
+    <script>
+        function RedirectToPassengerDetail(){
+            /** Send the selected data to passenger detail page */
+            $(document).on("click","button",function(){
+                let UID
+                const itinerary = '<%- JSON.stringify(data._response)%>'
+               
+                UID = this.id
+                const arr = JSON.parse(itinerary)
+            const data = arr.find((e)=> e.uid == UID)
+           
+            $.ajax({
+                url : `${window.origin}/flight/passenger-detail`,
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success: (res)=>{
+                    localStorage.clear()
+                    localStorage.setItem('new_data', JSON.stringify(data))                   
+                    window.location = `${window.origin}/flight/passenger-detail?uid=${data.uid}`
+                },
+                error: (err)=>{
+                    alert(err.responseJSON.message)
+                }
+            })
+                
+            });
+           
+            
+            
+            
+        }
+        $(function () {
+            $("#slider-range").slider({
+                range: true,
+                // min: minPrice,
+                // max: maxPrice,
+                // values: [minPrice, maxPrice],
+                min: 0000,
+                max: 2359,
+                values: [0000, 2359],
+                slide: function (event, ui) {
+                    $("#amount").val("Constraint.CurrencySymble" + ui.values[0] + " - Constraint.CurrencySymble" + ui.values[1]);
+                }
+            });
+            $("#amount").val("Constraint.CurrencySymble" + $("#slider-range").slider("values", 0) +
+                " - Constraint.CurrencySymble" + $("#slider-range").slider("values", 1));
+        });
+
+        $(function () {
+            $("#slider-range1").slider({
+                range: true,
+                min: 0000,
+                max: 2359,
+                values: [0000, 2359],
+                slide: function (event, ui) {
+                    $("#amount1").val("" + ui.values[0] + " - " + ui.values[1]);
+                }
+            });
+            $("#amount1").val("" + $("#slider-range1").slider("values", 0) +
+                " - " + $("#slider-range1").slider("values", 1));
+        });
+
+        $(function () {
+            $("#slider-range2").slider({
+                range: true,
+                min: 0000,
+                max: 2359,
+                values: [0000, 2359],
+                slide: function (event, ui) {
+                    $("#amount2").val("" + ui.values[0] + " - " + ui.values[1]);
+                }
+            });
+            $("#amount2").val("" + $("#slider-range2").slider("values", 0) +
+                " - " + $("#slider-range2").slider("values", 1));
+        });
+
+        $(document).ready(function () {
+            var windowWidth = $(window).width();
+            if (windowWidth <= 1024) //for iPad & smaller devices
+                $('.collapse').removeClass('show')
+        });
+
+        function AirlineFilter(airCode) {
+            if ($("#" + airCode).is(':checked'))
+                $(".cls" + airCode).fadeIn(500);
+            else
+                $(".cls" + airCode).fadeOut(1000);
+        }
+
+        function DepartAirportFilter(Code) {
+            if ($("#" + Code).is(':checked'))
+                $(".dep" + Code).fadeIn(500);
+            else
+                $(".dep" + Code).fadeOut(1000);
+        }
+
+        function ArrivalAirportFilter(Code) {
+            if ($("#" + Code).is(':checked'))
+                $(".arr" + Code).fadeIn(500);
+            else
+                $(".arr" + Code).fadeOut(1000);
+        }
+        function StopoverFilter(Code) {
+            debugger;
+            if ($("#" + Code).is(':checked'))
+                $(".stp" + Code).fadeIn(500);
+            else
+                $(".stp" + Code).fadeOut(1000);
+        }
+
+        function uncheckAllAirlines(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', false);
+
+            $('#' + divid + ' :checkbox:not(:checked)').each(function () {
+
+                $(".cls" + $(this).attr("id")).fadeOut(1000);
+            });
+        }
+        function checkAllAirlines(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".cls" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+
+        function uncheckAllStops(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".stp" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+        function checkAllStops(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".stp" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+
+        function uncheckAllDeparture(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".dep" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+        function checkAllDeparture(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".dep" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+
+
+        function uncheckAllArrival(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".dep" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+        function checkAllArrival(divid) {
+            $('#' + divid + ' :checkbox:enabled').prop('checked', true);
+
+            debugger;
+            $('#' + divid + ' :checkbox:checked').each(function () {
+
+                debugger;
+                $(".dep" + $(this).attr("id")).fadeIn(500);
+            });
+
+        }
+
+
+        function onlyAirline(divid, _id) {
+            debugger;
+            uncheckAllAirlines(divid);
+            $("#" + _id).prop('checked', true);
+            $(".cls" + _id).fadeIn(500);
+        }
+    </script>
+
+
+<%- include('../partials/footer')%>
+<%- include('../partials/LayoutFooter')%>
