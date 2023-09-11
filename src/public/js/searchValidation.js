@@ -203,7 +203,6 @@ $(document).ready(function () {
 
     $(".qtyDec, .qtyInc").on("click", function () {
 
-        debugger;
         let adults = parseFloat($("#_adults").val()), children = parseFloat($("#_children").val()), infants = parseFloat($("#_infants").val());
         if (adults + children + infants <= 8 || this.id.includes("Dec")) {
             var e = $(this);

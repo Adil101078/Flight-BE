@@ -1,5 +1,7 @@
 import { App } from "./globals";
 import fs from "fs";
+import _ from 'lodash'
+import moment from "moment";
 
 export const FileExistsSync = (FilePath) =>
   fs.existsSync(`${FilePath}.js`) || fs.existsSync(`${FilePath}.ts`);
@@ -139,6 +141,65 @@ export const CapitalizeFirstLetter = (s) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
+
+export const FlightPayload = ({
+  Origin,
+  Destination,
+  Departure,
+  jType = "Oneway",
+  ReturnDate = null,
+  Adults,
+  Childs,
+  Infants,
+  ClassOfService
+})=>{
+  let Segments = [
+    {
+      Origin,
+      Destination,
+      DepartureDate: moment(new Date(Departure)).format("DD/MM/YYYY"),
+      DepartureTime: App.Config.DEPARTURE_TIME,
+      DepartureTimeTo: App.Config.DEPARTURE_TO,
+      ClassOfService: null,
+    }
+  ]
+  if(jType == "Return"){
+    Segments.push({
+      Origin: Destination,
+      Destination:Origin,
+      DepartureDate: moment(new Date(ReturnDate)).format("DD/MM/YYYY"),
+      DepartureTime: App.Config.DEPARTURE_TIME,
+      DepartureTimeTo: App.Config.DEPARTURE_TO,
+      ClassOfService: null,
+    })
+  }
+
+
+  const RequestParams = {
+    Authentication: {
+      CompanyId: App.Config.COMPANY_ID,
+      CredentialId: App.Config.CREDENTIAL_ID,
+      CredentialPassword: App.Config.CREDENTIAL_PASSWORD,
+      CredentialType: App.Config.CREDENTIAL_TYPE,
+    },
+    TypeOfTrip: jType,
+    Segments,
+    PaxDetail: {
+      Adults: _.toNumber(Adults),
+      Child: _.toNumber(Childs),
+      Infants: _.toNumber(Infants),
+    },
+    Flexi: 0,
+    Direct: 3,
+    ClassOfService,
+    Airlines: [""],
+    FareFamily: null,
+    TravelType: null,
+    RefundableOnly: "false",
+    SearchId: "",
+  };
+  return RequestParams
+}
 
 
 

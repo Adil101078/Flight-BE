@@ -1,45 +1,52 @@
 import _ from "lodash"
 import { App } from "../../../core/globals";
 import moment from "moment"
+import Constants from "../../../core/constants";
 
 export default async function RenderPassengerDetail(req, res){
-    const contact_us = App.Config.CONTACT_US;
-    const _response = localStorage.getItem('selected_result')
-    const response = JSON.parse(_response)    
+    const { Origin, Destination, jtype } = req.query
     const travellers = []
-    console.log(response.priceBreakup)
-    if((response.priceBreakup.filter((e)=>e.passengerType === 'ADT')).length > 0){
-      const adt = response.priceBreakup.find((e)=>e.passengerType === 'ADT')
+    const contact_us = App.Config.CONTACT_US
+
+    if(!req.session.result) return res.redirect('/')
+
+    const response = req.session.result
+
+    // Get the price breakup for passenger type adult
+    if((response.priceBreakup.filter((e)=>e.passengerType === Constants.PASSENGER_TYPE.ADT)).length > 0){
+      const adt = response.priceBreakup.find((e)=>e.passengerType === Constants.PASSENGER_TYPE.ADT)
      for(let i=0;i<adt.noOfPassenger; i++ ){
       let obj ={
         type: adt.passengerType,
-        title: 'Adult'
+        title: Constants.PASSENGER_TYPE.ADULT
       }
       travellers.push(obj)
      }
     }
-    if((response.priceBreakup.filter((e)=>e.passengerType === 'CNN')).length > 0){
-      const adt = response.priceBreakup.find((e)=>e.passengerType === 'CNN')
+
+    // Get the price for passenger type child
+    if((response.priceBreakup.filter((e)=>e.passengerType === Constants.PASSENGER_TYPE.CNN)).length > 0){
+      const adt = response.priceBreakup.find((e)=>e.passengerType === Constants.PASSENGER_TYPE.CNN)
      for(let i=0;i<adt.noOfPassenger; i++ ){
       let obj ={
         type: adt.passengerType,
-        title:'Child'
+        title: Constants.PASSENGER_TYPE.CHILD
       }
       travellers.push(obj)
      }
     }
-    
-    if((response.priceBreakup.filter((e)=>e.passengerType === 'INF')).length > 0){
-      const adt = response.priceBreakup.find((e)=>e.passengerType === 'INF')
+
+    // Get the price for passenger type infant
+    if((response.priceBreakup.filter((e)=>e.passengerType === Constants.PASSENGER_TYPE.INF)).length > 0){
+      const adt = response.priceBreakup.find((e)=>e.passengerType === Constants.PASSENGER_TYPE.INF)
      for(let i=0;i<adt.noOfPassenger; i++ ){
       let obj ={
         type: adt.passengerType,
-        title: 'Infant'
+        title: Constants.PASSENGER_TYPE.INFANT
       }
       travellers.push(obj)
      }
     }
-    console.log(travellers)
-    const data = { _, moment, response,travellers, contact_us }
+    const data = { _, moment, response, travellers, contact_us, Origin, Destination, jtype }
     return res.render('flight/passenger-detail', { data })
 }

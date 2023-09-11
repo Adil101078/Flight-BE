@@ -24,7 +24,10 @@ export default () => ({
     CREDENTIAL_PASSWORD: process.env.CREDENTIAL_PASSWORD,
     CREDENTIAL_TYPE: process.env.CREDENTIAL_TYPE,
     DEPARTURE_TIME: process.env.DEPARTURE_TIME,
-    DEPARTURE_TO: process.env.DEPARTURE_TO
+    DEPARTURE_TO: process.env.DEPARTURE_TO,
+    COOKIE_MAX_AGE: process.env.COOKIE_MAX_AGE,
+    SESSION_SECRET: process.env.SESSION_SECRET,
+    GET_LOW_FARE_ENDPOINT: process.env.GET_LOW_FARE_ENDPOINT
 
 });
   

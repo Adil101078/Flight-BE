@@ -1,93 +1,77 @@
 import { DataTypes } from "sequelize";
 import Database from "../core/database";
 
-const Contact_Detail = Database.define("Contact_Detail", {
-        SNo:{
+const Amount_Charges_Detail = Database.define("Amount_Charges_Detail", {
+        SNO:{
             type: DataTypes.INTEGER,
-            autoIncrement:true,
-            allowNull: false
+            autoIncrement: true,
+            primaryKey: true
            
         },
-        Booking_Id: {
+        BOK_MST_Booking_ID: {
             type: DataTypes.STRING,
-            primaryKey: true,
             references: {
                 model: "Booking_Product_Master",
                 key: "Booking_Id"
-            },
-            allowNull: false
+                }
         },
-        Product_Id: {
+        BOK_DTL_Prod_Booking_ID: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
             references: {
                 model: "Booking_Product_Details",
                 key: "Product_Id"
-            },
-            allowNull: false
+                }
         },
-        Pax_ID:{
+        AMT_CHG_MST_Category:{
             type:DataTypes.STRING,
-            primaryKey: true,
-            allowNull: false
+            defaultValue:""
         },
-        PhoneNo:{
+        AMT_CHG_MST_Charge_Type:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        MobileNo:{
+        AMT_CHG_DTL_Charges_For:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        FAX:{
+        AMT_CHG_DTL_Cost_Price:{
+            type: DataTypes.DECIMAL,
+        },
+        AMT_CHG_DTL_Sell_Price:{
+            type: DataTypes.DECIMAL
+        },
+        AMT_CHG_DTL_Charges_Status:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        Email_Address:{
+        AMT_CHG_DTL_Supplier_ID:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        Country:{
-            type: DataTypes.STRING,
-            defaultValue:""
-        },
-        State:{
-            type: DataTypes.STRING,
-            defaultValue:""
-        },
-        City:{
-            type: DataTypes.STRING,
-            defaultValue:""
-        },
-        Address1:{
+        AMT_CHG_DTL_Charges_Remarks:{
             type: DataTypes.TEXT,
             defaultValue:""
         },
-        Address2:{
-            type: DataTypes.TEXT,
-            defaultValue:""
+        AMT_CHG_DTL_Charges_Date:{
+            type: DataTypes.DATE,
         },
-        Post_Code:{
+        AMT_CHG_DTL_ModifiedBy:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        Address_Type:{
+        AMT_CHG_DTL_PaxId:{
             type: DataTypes.STRING,
             defaultValue:""
         },
-        ModifiedBy:{
-            type: DataTypes.STRING,
-            defaultValue:""
-        },
-        ModifiedDate:{
+        AMT_CHG_DTL_ModifiedDate:{
             type: DataTypes.DATE
         }
         
     },{
         freezeTableName: true,
         timestamps: false,
-        initialAutoIncrement:1
+        initialAutoIncrement: 1
 });
 
 
-export default Contact_Detail
+export default Amount_Charges_Detail

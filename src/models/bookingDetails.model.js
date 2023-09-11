@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import Database from "../core/database";
+import Booking_Product_Master from "./bookingProductMaster.model";
 
 const Booking_Product_Details = Database.define("Booking_Product_Details", {
         Product_Id:{

@@ -4,13 +4,15 @@ import Database from "../core/database";
 const Sector_Master = Database.define("Sector_Master", {
         Booking_Id: {
             type: DataTypes.STRING,
+            primaryKey:true,
             references: {
                 model: "Booking_Product_Master",
                 key: "Booking_Id"
                 }
         },
         Product_Id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: "Booking_Product_Details",
                 key: "Product_Id"
@@ -45,8 +47,7 @@ const Sector_Master = Database.define("Sector_Master", {
             defaultValue:""
         },
         Last_Modified_DateTime:{
-            type: DataTypes.DATE,
-            defaultValue: Date.now()
+            type: DataTypes.DATE
         },
         Last_Modified_By:{
             type: DataTypes.STRING,

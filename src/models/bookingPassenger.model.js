@@ -4,10 +4,11 @@ import Database from "../core/database";
 const Booking_Product_Passenger = Database.define("Booking_Product_Passenger", {
         Passenger_ID:{
             type: DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
         },
         Booking_Id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
+            primaryKey: true,
             references: {
                 model: "Booking_Product_Master",
                 key: "Booking_Id"
@@ -15,6 +16,7 @@ const Booking_Product_Passenger = Database.define("Booking_Product_Passenger", {
         },
         Product_Id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: "Booking_Product_Details",
                 key: "Product_Id"
@@ -55,11 +57,10 @@ const Booking_Product_Passenger = Database.define("Booking_Product_Passenger", {
         },
         Last_Modified_DateTime:{
             type: DataTypes.DATE,
-            defaultValue: Date.now()
         },
         Passenger_ETicket:{
             type: DataTypes.STRING,
-            defaultValue:""
+            defaultValue:"yes"
         },
         Checkin_Baggage:{
             type: DataTypes.STRING,

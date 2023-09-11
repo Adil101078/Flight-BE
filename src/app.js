@@ -8,6 +8,8 @@ import morgan from "morgan";
 import Database from "./core/database";
 import path from "path";
 import clientRouter from "./renderRoute.routes";
+import session from "express-session";
+import cookieParser from "cookie-parser";
 
 
 const expressApp = express();
@@ -28,6 +30,15 @@ expressApp.use(express.static(path.join(__dirname, 'public')))
 expressApp.set("port", App.Config.PORT);
 expressApp.set("env", "development");
 expressApp.disable("x-powered-by");
+expressApp.use(cookieParser())
+
+//session middleware
+expressApp.use(session({
+    secret: App.Config.SESSION_SECRET,
+    saveUninitialized:true,
+    cookie: { maxAge: +App.Config.COOKIE_MAX_AGE },
+    resave: false
+}));
 
 expressApp.all('*', function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*')

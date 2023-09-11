@@ -4,11 +4,13 @@ import FlightResult from "./flight-result.controller"
 import SearchRequest from './search-request.controller'
 import RenderPassengerDetail from './passenger-detail.controller'
 import CreateBookig from "./booking.controller";
+import RenderBookingConfirmedPage from "./render-booking-confirmation.controller";
 export default {
     Search,
     Wait,
     FlightResult,
     SearchRequest,
     RenderPassengerDetail,
-    CreateBookig
+    CreateBookig,
+    RenderBookingConfirmedPage
 }

@@ -1,0 +1,525 @@
+<%- include('../partials/LayoutHeader')%>
+<%- include('../partials/header')%>
+
+<link href="css/confirmation.css" rel="stylesheet" type="text/css" media="all"/>
+<%
+    function find({ sector, group, isFirst= false}){
+        const arr = sector.filter((e)=> e.group === group)
+        let result
+        if(!isFirst){
+            result = data._.last(arr)
+
+        } else{
+            result = arr[0]
+        }
+
+        return result
+        }
+
+        function findSector({ sector, group }){
+        return sector.filter((e)=> e.group == group)
+
+        }
+
+%>
+
+<!-- Page sub-header + Bottom mask style 3 -->
+<div id="page_header" class="page-subheader hg_def_header_style ">
+    <div class="bgback"></div>
+
+    <!-- Animated Sparkles -->
+    <div class="th-sparkles"></div>
+    <!--/ Animated Sparkles -->
+    <!-- Background -->
+    <div class="kl-bg-source">
+        <!-- Gradient overlay -->
+        <div class="kl-bg-source__overlay" style="background: rgba(0,94,176,1); background: -moz-linear-gradient(left, rgba(0,94,176,1) 0%, rgba(0,202,255,1) 100%); background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,94,176,1)), color-stop(100%,rgba(0,202,255,1))); background: -webkit-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: -o-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: -ms-linear-gradient(left, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); background: linear-gradient(to right, rgba(0,94,176,1) 0%,rgba(0,202,255,1) 100%); ">
+        </div>
+        <!--/ Gradient overlay -->
+    </div>
+    <!--/ Background -->
+    <!-- Sub-Header content wrapper -->
+    <div class="ph-content-wrap d-flex">
+        <div class="container align-self-center">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+
+
+                    <div class="clearfix"></div>
+                </div>
+                <!--/ col-sm-12 col-md-6 col-lg-6 -->
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <!-- Sub-header titles -->
+                    <div class="subheader-titles">
+                        <h2 class="subheader-maintitle">Confirmation</h2>
+                        <h4 class="subheader-subtitle"><%=data?.result?.sectors[0]?.departure?.cityName%>
+                            <i class="fa fa-arrow-right"></i>
+                            <%=find({sector: data?.result?.sectors, group: "0" }).arrival.cityName%>
+                        </h4>
+                        <br />
+                        <h4 class="subheader-subtitle">
+                            <%=data.moment(data.result?.sectors[0].departure.date, "DD-MM-YYYY").format('ddd, MMM DD YYYY')%>
+                        </h4>
+                        <br>
+                        <% if(findSector({ sector: data?.result?.sectors, group: "1"}).length > 0){%>
+                    
+
+                        <h4 class="subheader-subtitle"><%=find({ sector: data.result?.sectors, group: "1", isFirst: true }).departure?.cityName%>
+                            <i class="fa fa-arrow-right"></i>
+                            <%=find({ sector: data.result?.sectors, group: "1", isFirst: true }).arrival.cityName%>
+                        </h4>
+                        <br />
+                        <h4 class="subheader-subtitle">
+                            <%=data.moment(find({ sector: data.result?.sectors, group: "1", isFirst: true }).departure.date, "DD-MM-YYYY").format('ddd, MMM DD YYYY') %>
+                        </h4>
+                        <%}%>
+                    </div>
+                    <!--/ Sub-header titles -->
+                </div>
+                <!--/ col-sm-12 col-md-6 col-lg-6 -->
+            </div>
+            <!--/ row -->
+        </div>
+        <!--/ .container .align-self-center -->
+    </div>
+    <!--/ Sub-Header content wrapper .d-flex -->
+    <!-- Sub-header Bottom mask style 3 -->
+    <div class="kl-bottommask kl-bottommask--mask3">
+        <svg width="5000px" height="57px" class="svgmask " viewBox="0 0 5000 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-mask3">
+                    <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                    <feGaussianBlur stdDeviation="2" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+                    <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                    <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+                    <feMerge>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                        <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                    </feMerge>
+                </filter>
+            </defs>
+            <path d="M9.09383679e-13,57.0005249 L9.09383679e-13,34.0075249 L2418,34.0075249 L2434,34.0075249 C2434,34.0075249 2441.89,33.2585249 2448,31.0245249 C2454.11,28.7905249 2479,11.0005249 2479,11.0005249 L2492,2.00052487 C2492,2.00052487 2495.121,-0.0374751261 2500,0.000524873861 C2505.267,-0.0294751261 2508,2.00052487 2508,2.00052487 L2521,11.0005249 C2521,11.0005249 2545.89,28.7905249 2552,31.0245249 C2558.11,33.2585249 2566,34.0075249 2566,34.0075249 L2582,34.0075249 L5000,34.0075249 L5000,57.0005249 L2500,57.0005249 L1148,57.0005249 L9.09383679e-13,57.0005249 Z" class="bmask-bgfill" filter="url(#filter-mask3)" fill="#fbfbfb"></path>
+        </svg>
+        <i class="fas fa-angle-down"></i>
+    </div>
+    <!--/ Sub-header Bottom mask style 3 -->
+</div>
+<!--/ Page sub-header + Bottom mask style 3 -->
+<section id="content" class="hg_section pt-80 pb-80">
+    <div class="container">
+        <div class="row">
+            <!-- Content page with right sidebar-->
+            <div class="right_sidebar col-sm-12 col-md-12 col-lg-12 mb-md-50">
+                <div class="text_box">
+                    <div class="alert alert-info">
+                        <% if(data.booking.Status === "failed"){%>
+                            <p>Thank you! Your booking order is declined.
+                                <span>A declined email has been sent to your provided email address.</span>
+                            </p>
+
+
+                        <%}else{%>
+                            <p>Thank you! Your booking order is confirmed now.
+                                <span>A confirmation email has been sent to your provided email address.</span>
+                            </p>
+                        <%}%>
+                    </div>
+                    <!--/ .kl-store -->
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <blockquote style="color: black; margin: 2px 15px;">
+                <em class="latest_posts-acc-details12">
+                    <address>
+                        <strong>Booking Date : </strong><%=data.moment(new Date()).format("ddd MMM YYYY HH:mm")%><br>
+                        <strong>Booking Ref&nbsp;&nbsp;&nbsp;&nbsp;: </strong><%=data.booking?.Booking_Id%> <br>
+                    </address>
+
+                </em>
+
+            </blockquote>
+           
+            
+        </div>
+        <div class="inner-confirm-wrap">
+            <div class="container">
+
+                <div class="text_box">
+                    <div class="kl-store">
+                        <div class="kl-store-info">
+                            Traveller's Contact
+                        </div>
+                        <div class="">
+                            <blockquote style="color: black;">
+                                <em class="latest_posts-acc-details12">
+                                    <address>
+                                        <strong>Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong><%=data.contact?.dataValues?.Address1%>, <%=data.contact?.dataValues?.Address2%> <br>
+                                        <strong>Town/City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong><%=data.contact?.dataValues?.City%>, <%=data.contact?.dataValues?.Country%><br>
+                                        <strong>Postal Code&nbsp;&nbsp;: </strong><%=data.contact?.dataValues?.Post_Code%><br>
+                                        <strong>Cell Phone&nbsp;&nbsp;&nbsp;&nbsp;: </strong><%=data.contact?.dataValues?.MobileNo%><br>
+                                        <strong>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong><%=data.contact?.dataValues?.Email_Address%></address>
+                                </em>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!--/ .kl-store -->
+                </div>
+
+
+                <div class="text_box">
+                    <div class="kl-store">
+                        <div class="kl-store-info">
+                            Travellers Details
+                        </div>
+                        <div class="copyright">
+                           
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Middle Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Pax Type</th>
+                                        <th scope="col">DOB</th>
+                                        <th scope="col">Status</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%for(const p of data.pax){%>
+                                   
+                                        <tr>
+
+                                            <td><%=p.Passenger_Title%>  <%=p.Passenger_First_Name%></td>
+                                            <td><%=p.Passenger_Middle_Name%></td>
+                                            <td><%=p.Passenger_Last_Name%></td>
+                                            <td><%=p.Passenger_Type%></td>
+                                            <td><%=p.Passenger_DOB%></td>
+                                            <td>
+                                                <% if(p.Passenger_ETicket == null){%>
+                                            
+                                                    <%if (data.booking?.Status?.toLowerCase() === "failed"){%>
+                                                        <span>Decline</span>
+                                                    <%} else{%>
+                                                        <span>Ticketing in progress</span>
+                                                    <%}%>
+                                                <%}else{%>
+
+                                                    <span><%=p.Passenger_ETicket%></span>
+                                                <%}%>
+                                            </td>
+
+                                        </tr>
+                                    <%}%>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                    <!--/ .kl-store -->
+                </div>
+                
+
+
+                <div class="text_box">
+                    <div class="kl-store">
+                        <div class="kl-store-info">
+                            Departure Flight
+                        </div>
+                        <div class="copyright">
+                    
+                        </div>
+                        <div class="row">
+                            <% for(const s of findSector({ sector: data?.result?.sectors, group: "0"})){%>
+                            
+                                <div class="col-sm-12 col-12 col-lg-12 ltd-bdr-infoset">
+                                    <div class="flight-col-confirminfo">
+                                        <h3><i class="fa fa-calendar-o"> </i><%=data.moment(s.departure.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%></h3>
+                                        <div class="flight-ret-depart">
+                                            <div class="lt-depart">
+                                                <span><%=s.departure.code%></span>
+                                                <i class="fa fa-long-arrow-right"> </i><strong><%=s.departure.time%></strong>
+                                                <span class="tm-col-info">
+                                                    <%=data.moment(s.departure.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%>
+                                                </span>
+                                                <p>
+                                                    <%=s.departure.cityName%>,
+                                                    <%=s.departure.name%>
+                                                </p>
+                                            </div>
+
+                                            <div class="arrow-cntr">
+                                                <i class="fa fa-long-arrow-right">
+
+                                                </i>
+                                            </div>
+
+                                            <div class="lt-depart rtalingshipt">
+                                                <span><%=s.arrival.code%></span>
+                                                <i class="fa fa-long-arrow-right"> </i> <strong><%=s.arrival.time%></strong>
+                                                <span class="tm-col-info">
+                                                    <%=data.moment(s.arrival.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%>
+                                                </span>
+                                                <p>
+                                                    <%=s.arrival.cityName%>,
+                                                    <%=s.arrival.name%>
+                                                </p>
+
+                                            </div>
+
+                                            <div class="fcstop">
+                                                <ul>
+                                                    <li>Flight No : <%=s.airlineCode%> <%=s.fltNum%>   </li>
+                                                    <li>Class :  <%=s.cabinClass%></li>
+
+                                                </ul>
+
+                                            </div>
+                                            
+                                            <div class="airlin-codinfo">
+                                                <strong><%=s.airlineName%></strong>
+                                                <%if (s.operatingCarrier != null){%>
+                                                    <p>
+                                                        This Flight segment is Operated by <% s.operatingCarrier.code == null ? s.airlineName: s.operatingCarrier.code%>
+                                                       
+                                                    </p>
+                                                <%}%>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+                                </div>
+                            <%}%>
+
+                        </div>
+
+                    </div>
+                    <!--/ .kl-store -->
+                </div>
+
+                <%if (findSector({ sector: data?.result?.sectors, group: "1"}).length > 0){%>
+                
+                    <div class="text_box">
+                        <div class="kl-store">
+                            <div class="kl-store-info">
+                                Return Flight
+                            </div>
+                            
+                            </div>
+                            <div class="row">
+                                <% for(const s of findSector({ sector: data?.result?.sectors, group: "1"})){%>
+                                
+                                    <div class="col-sm-12 col-12 col-lg-12 ltd-bdr-infoset">
+                                        <div class="flight-col-confirminfo">
+                                            <h3><i class="fa fa-calendar-o"> </i><%=data.moment(s.departure.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%></h3>
+                                            <div class="flight-ret-depart">
+                                                <div class="lt-depart">
+                                                    <span><%=s.departure.code%></span>
+                                                    <i class="fa fa-long-arrow-right"> </i><strong><%=s.departure.time%></strong>
+                                                    <span class="tm-col-info">
+                                                        <%=data.moment(s.departure.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%>
+                                                    </span>
+                                                    <p>
+                                                        <%=s.departure.cityName%>,
+                                                        <%=s.departure.name%>
+                                                    </p>
+                                                </div>
+    
+                                                <div class="arrow-cntr">
+                                                    <i class="fa fa-long-arrow-right">
+    
+                                                    </i>
+                                                </div>
+    
+                                                <div class="lt-depart rtalingshipt">
+                                                    <span><%=s.arrival.code%></span>
+                                                    <i class="fa fa-long-arrow-right"> </i> <strong><%=s.arrival.time%></strong>
+                                                    <span class="tm-col-info">
+                                                        <%=data.moment(s.arrival.date, "DD-MM-YYYY").format("ddd, DD MMM YYYY")%>
+                                                    </span>
+                                                    <p>
+                                                        <%=s.arrival.cityName%>,
+                                                        <%=s.arrival.name%>
+                                                    </p>
+    
+                                                </div>
+    
+                                                <div class="fcstop">
+                                                    <ul>
+                                                        <li>Flight No : <%=s.airlineCode%> <%=s.fltNum%>   </li>
+                                                        <li>Class :  <%=s.cabinClass%></li>
+    
+                                                    </ul>
+    
+                                                </div>
+    
+                                                <div class="airlin-codinfo">
+                                                    <strong><%=s.airlineName%></strong>
+                                                    <%if (s.operatingCarrier != null){%>
+                                                        <p>
+                                                            This Flight segment is Operated by <% s.operatingCarrier.code == null ? s.airlineName: s.operatingCarrier.code%>
+                                                           
+                                                        </p>
+                                                    <%}%>
+                                                </div>
+                                            </div>
+    
+    
+    
+    
+                                        </div>
+    
+    
+                                    </div>
+                                <%}%>
+    
+                            </div>
+                        </div>
+                        <!--/ .kl-store -->
+                    </div>
+                   
+                    <%}%>
+                    
+
+                <div class="text_box">
+                    <div class="kl-store">
+                        <div class="kl-store-info">
+                            Traveller's fare Details
+                        </div>
+                        <div class="copyright">
+                            
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Passenger</th>
+                                        <th scope="col">Fare</th>
+                                        <th scope="col">Taxes</th>
+                                        <th scope="col">Fare+Tax</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- @{ var grandTotal = 0.00;} -->
+                                    <% for(const p of data.pax){%>
+                                
+                                        <!-- var pricebreakup = Model.PriceBreakup.Where(pt => pt.PassengerType == p.Type).FirstOrDefault(); -->
+                                        <!-- grandTotal += (pricebreakup.BaseFare + pricebreakup.MarkUp + pricebreakup.Tax); -->
+                                        <tr>
+                                            <td><%=p.Passenger_Title%> <%=p.Passenger_First_Name%> <%=p.Passenger_Last_Name%></td>
+                                            <!-- <td>@(pricebreakup.BaseFare + pricebreakup.MarkUp)</td>
+                                            <td>@pricebreakup.Tax</td>
+                                            <td>@Model.Transactions.FirstOrDefault().Currency @(pricebreakup.BaseFare + pricebreakup.MarkUp + pricebreakup.Tax)</td> -->
+
+                                        </tr>
+                                    <%}%>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-ttl-amt">
+                            <h6><strong> Total Fare:</strong>USD <%=data?.result?.totalPrice%></h6>
+                        </div>
+
+
+                    </div>
+                    <!--/ .kl-store -->
+                </div>
+
+
+            </div>
+                    </div>
+                </div>
+</section>
+<style>
+    .page-subheader .ph-content-wrap {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+
+    .kl-store-page table.shop_table {
+        min-width: 350px;
+        width: 100%;
+    }
+
+    .hg_section {
+        margin-top: 20px;
+        border: 1px solid #e5e5e5;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 0 5px #ccc;
+    }
+
+    .passenger-type {
+        display: inline-block;
+        color: #222;
+        font-size: 16px;
+        /*font-weight: 500;*/
+        margin: 0 0 5px 5px;
+        padding: 2px 20px 2px 10px;
+        position: absolute;
+        top: -27px;
+        background: #fff;
+    }
+
+    .kl-fancy-form label {
+        left: 27px !important;
+    }
+
+    select.form-control:not([size]):not([multiple]) {
+        height: calc(3.25rem + 2px) !important;
+    }
+
+    .ib2-custom .ib2-inner {
+        padding: 25px !important;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ib2-text-color-light-theme .ib2-inner {
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .gray2 {
+        color: #228b13;
+    }
+
+    .checkbox input:checked ~ .helper {
+        color: #337ab7;
+    }
+
+    .checkbox.bxinfsetr .helper {
+        top: 1px;
+    }
+
+    .checkbox .helper {
+        color: #999;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1rem;
+        height: 1rem;
+        z-index: 0;
+        border: 0.125rem solid currentColor;
+        border-radius: 0.0625rem;
+        -webkit-transition: border-color 0.28s ease;
+        transition: border-color 0.28s ease;
+    }
+</style>
+<%- include('../partials/footer')%>
+<%- include('../partials/LayoutFooter')%>

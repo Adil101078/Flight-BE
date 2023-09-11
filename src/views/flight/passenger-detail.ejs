@@ -7,7 +7,7 @@
 <!-- Checkout content page with custom paddings -->
 <section id="content" class="hg_section pt-80 pb-80">
     <div class="container">
-        <form id="form" method="post" action="/flight/create-booking" role="form">
+        <form id="form">
             <div class="row">
                 <!-- Content page with right sidebar-->
                 <div class="right_sidebar col-sm-12 col-md-12 col-lg-9 mb-md-50">
@@ -735,13 +735,13 @@
 
                                     <div class="row">
                                         <div class="col-sm-6 col-md-6 kl-fancy-form">
-                                            <input id="email" class="form-control h5-active" placeholder="Enter your email address" type="email" required="required">
+                                            <input id="email" name="email" class="form-control h5-active" placeholder="Enter your email address" type="email" required="required">
                                             <label class="control-label">
                                                 EMAIL ADDRESS
                                             </label>
                                         </div>
                                         <div class="col-sm-6 col-md-6 kl-fancy-form">
-                                            <input id="mobile_no" class="form-control money" placeholder="Enter your mobile number" type="text" minlength="9" maxlength="12" required="required">
+                                            <input id="mobile_no" name="mobile_no" class="form-control money" placeholder="Enter your mobile number" type="text" minlength="9" maxlength="12" required="required">
                                             <label class="control-label">
                                                 MOBILE NUMBER
                                             </label>
@@ -765,6 +765,7 @@
 
                     <div class="text_box  pt-20">
                         <div class="kl-store">
+                            
                             <div class="kl-store-info">
                                 Travellers Info
                             </div>
@@ -779,32 +780,37 @@
                             </div>
                             <input type="hidden" name="currency" value="<%=data.response.currency%>">
                             <input type="hidden" name="grandTotal" value="<%=data.response.grandTotal%>">
-                           <% data.travellers.forEach((e, index)=>{%>
-                                <section class="deprt-fare pt-30 pb-40">
-                    
-                                    <form id="<%=e.type%>_<%=index+1%>">
-                                    <div class="container">
-
+                            <input type="hidden" name="jType" value="<%=data.jtype%>">
+                            <input type="hidden" name="origin" value="<%=data.Origin%>">
+                            <input type="hidden" name="destination" value="<%=data.Destination%>">
+                            <input type="hidden" name="valCarrier" value="<%=data.response.valCarrier%>">
+                            <input type="hidden" name="fareFamily" value="<%=data.response.fareFamily%>">
+                           <% data.travellers.map((e, index)=>{%>
+                           
+                            <section class="deprt-fare pt-30 pb-40">
+                                
+                                <div class="container">
+                                    
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12 kl-fancy-form">
                                                 
                                                 <div class="passenger-type tcolor fw-bold"><img src="images/usergray.png" alt="passenger icon"> Passenger <%=index+1%> <span><%=e.title%></span></div>
-
+                                                
                                             </div>
-
+                                            
                                         </div>
                                         <div class="row">
-                                            <input id="<%=e.type%>_<%=index+1%>_type" type="hidden" value="<%=e.title%>">
+                                            <input name="paxType[]" id="<%=e.type%>_<%=index+1%>_type" type="hidden" value="<%=e.title%>">
                                             <div class="col-sm-4 col-md-4 kl-fancy-form">
                                                 <% if(e.type == 'CNN' || e.type == 'INF'){%>
-                                                    <select class="form-control" id="<%=e.type%>_<%=index+1%>_title" required="required">
+                                                    <select name="title[]" class="form-control" id="<%=e.type%>_<%=index+1%>_title" required="required">
                                                         <option value=""></option>
                                                         <option value="MSTR">MSTR</option>
                                                         <option value="MISS">MISS</option>
                                                     </select>
                                                
                                                 <%}else{%>
-                                                    <select class="form-control" id="<%=e.type%>_<%=index+1%>_title" required="required">
+                                                    <select name="title[]" class="form-control" id="<%=e.type%>_<%=index+1%>_title" required="required">
                                                         <option value=""></option>
                                                         <option value="MR">MR</option>
                                                         <option value="MRS">MRS</option>
@@ -822,7 +828,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                                <select class="form-control" id="<%=e.type%>_<%=index+1%>_gender" required="required">
+                                                <select name="gender[]" class="form-control" id="<%=e.type%>_<%=index+1%>_gender" required="required">
                                                     <option value=""></option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -836,20 +842,20 @@
 
                                         <div class="row">
                                             <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                                <input class="form-control h5-active  alphaOnly upCase" placeholder="Enter your first name" id="firstName" type="text" required="required">
+                                                <input name="firstName[]" class="form-control h5-active  alphaOnly upCase" placeholder="Enter your first name" id="<%=e.type%>_<%=index+1%>_firstName" type="text" required="required">
                                                 <label class="control-label">
                                                     FIRST NAME
                                                 </label>
                                             </div>
                                             <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                                <input class="form-control alphaOnly upCase" id="middleName" placeholder="Enter your middle name" type="text">
+                                                <input name="middleName[]" class="form-control alphaOnly upCase" id="<%=e.type%>_<%=index+1%>_middleName" placeholder="Enter your middle name" type="text">
                                                 <label class="control-label">
                                                     MIDDLE NAME
                                                 </label>
                                             </div>
 
                                             <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                                <input class="form-control alphaOnly upCase" id="lastName" placeholder="Enter your last name" required="required" type="text">
+                                                <input name="lastName[]" class="form-control alphaOnly upCase" id="<%=e.type%>_<%=index+1%>_lastName" placeholder="Enter your last name" required="required" type="text">
                                                 <label class="control-label">
                                                     LAST NAME
                                                 </label>
@@ -859,7 +865,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-2 col-md-2 kl-fancy-form">
-                                                <select class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Day" name="<%=e.type%>_<%=index+1%>_Day">
+                                                <select name="dobDay[]" class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Day">
                                                     <%
                                                         let day = 1
                                                         let end = 31
@@ -877,7 +883,7 @@
                                             </div>
 
                                             <div class="col-sm-2 col-md-2 kl-fancy-form">
-                                                <select class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Month" name="<%=e.type%>_<%=index+1%>Month">
+                                                <select name="dobMonth[]" class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Month" >
                                                     <option value=""></option>
                                                     <option value="01">Jan</option>
                                                     <option value="02">Feb</option>
@@ -897,8 +903,9 @@
                                                 </label>
                                             </div>
 
+
                                             <div class="col-sm-2 col-md-2 kl-fancy-form">
-                                                <select class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Year" name="<%=e.type%>_<%=index+1%>_Year">
+                                                <select name="dobYear[]" class="form-control" required="required" id="<%=e.type%>_<%=index+1%>_Year" >
                                                     <%
                                                         let startYear 
                                                         let endYear 
@@ -915,7 +922,7 @@
                                                             endYear = new Date().getFullYear() - 2
                                                         }
                                                     %>
-                                                    <option value=""></option>
+                                                    <option value="Year"></option>
                                                     <% for (let y = endYear; y <= startYear; y++){%>
                                                
                                                         <option value="<%=y%>"><%=y%></option>
@@ -932,8 +939,10 @@
                                         </div>
                                         <!--/ .row -->
                                     </div>
+                                
                                     <!--/ .container -->
-                                </section>
+                            </section>
+                          
                             <%})%>
                        
 
@@ -963,13 +972,13 @@
 
                                     <div class="row">
                                         <div class="col-sm-6 col-md-6 kl-fancy-form">
-                                            <input asp-for="@Model.CardDetails.CardNumber" class="form-control h5-active money" placeholder="Enter your card number" minlength="13" maxlength="16" type="text" required="required">
+                                            <input name="cardNumber" class="form-control h5-active money" placeholder="Enter your card number" minlength="13" maxlength="16" type="text" required="required">
                                             <label class="control-label">
                                                 CARD NUMBER
                                             </label>
                                         </div>
                                         <div class="col-sm-6 col-md-6 kl-fancy-form">
-                                            <input asp-for="@Model.CardDetails.CardHolder" class="form-control " placeholder="Enter card holder name" type="text" required="required">
+                                            <input name="cardHolder" class="form-control " placeholder="Enter card holder name" type="text" required="required">
                                             <label class="control-label">
                                                 CARD HOLDER NAME
                                             </label>
@@ -982,22 +991,22 @@
 
                                     <div class="row">
                                         <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                            <select class="form-control" asp-for="@Model.CardDetails.CardExpiryMonth" required="required">
+                                            <select class="form-control" name="cardExpMonth"  required="required">
                                                 <option value="">Month</option>
-                                                <option value="01">Jan</option>
-                                                <option value="02">Feb</option>
-                                                <option value="03">Mar</option>
-                                                <option value="04">Apr</option>
-                                                <option value="05">May</option>
-                                                <option value="06">Jun</option>
-                                                <option value="07">Jul</option>
-                                                <option value="08">Aug</option>
-                                                <option value="09">Sep</option>
-                                                <option value="10">Oct</option>
-                                                <option value="11">Nov</option>
-                                                <option value="12">Dec</option>
+                                                <option name="cardExpMonth" value="01">Jan</option>
+                                                <option name="cardExpMonth" value="02">Feb</option>
+                                                <option name="cardExpMonth" value="03">Mar</option>
+                                                <option name="cardExpMonth" value="04">Apr</option>
+                                                <option name="cardExpMonth" value="05">May</option>
+                                                <option name="cardExpMonth" value="06">Jun</option>
+                                                <option name="cardExpMonth" value="07">Jul</option>
+                                                <option name="cardExpMonth" value="08">Aug</option>
+                                                <option name="cardExpMonth" value="09">Sep</option>
+                                                <option name="cardExpMonth" value="10">Oct</option>
+                                                <option name="cardExpMonth" value="11">Nov</option>
+                                                <option name="cardExpMonth" value="12">Dec</option>
                                             </select>
-                                            <input type="hidden" asp-for="@Model.CardDetails.CardExpiryMonth" />
+                                            <input type="hidden" />
                                             <label class="control-label">
                                                 EXPIRY MONTH
                                             </label>
@@ -1009,14 +1018,14 @@
                                                 cardstartYear = new Date().getFullYear();
                                                 cardendYear = cardstartYear + 15
                                             %>
-                                            <select class="form-control" asp-for="@Model.CardDetails.CardExpiryYear" required="required">
+                                            <select class="form-control" name="cardExpYear" required="required">
                                                 <option value="">Year</option>
                                                 <% for (let y = cardstartYear; y <= cardendYear; y++){%>
                                                
-                                                    <option value="<%=y%>"><%=y%></option>
+                                                    <option name="cardExpYear" value="<%=y%>"><%=y%></option>
                                                 
                                                     <%}%>   
-                                                <input type="hidden" asp-for="@Model.CardDetails.CardExpiryYear" />
+                                                <input type="hidden" />
                                             </select>
 
                                             <label class="control-label">
@@ -1024,7 +1033,7 @@
                                             </label>
                                         </div>
                                         <div class="col-sm-4 col-md-4 kl-fancy-form">
-                                            <input asp-for="@Model.CardDetails.CVV" class="form-control money" placeholder="Cvv Number" type="text" minlength="3" maxlength="4" required="required">
+                                            <input name="cvv" class="form-control money" placeholder="Cvv Number" type="text" minlength="3" maxlength="4" required="required">
                                             <label class="control-label">
                                                 CVV NUMBER
                                             </label>
@@ -1046,6 +1055,334 @@
                     </div>
 
                     <!--/ .text_box -->
+                    <div class="text_box  pt-20">
+                        <div class="kl-store">
+                            <div class="kl-store-info">
+                               Billing Information
+                            </div>
+                            <div class="copyright">
+                                <blockquote>
+                                    <em class="latest_posts-acc-details">
+                                    </em>
+                                </blockquote>
+                            </div>
+                            <section class="deprt-fare pt-10 pb-40">
+
+                                <div class="container">
+
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">
+                                            <input class="form-control" placeholder="Address 1" maxlength="35" type="text" required="required" id="CardDetails_BillingDetails_Address1" name="Address1" value="">
+                                            <label class="control-label">
+                                                ADDRESS 1
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">
+                                            <input class="form-control " placeholder="Address 2" type="text" id="CardDetails_BillingDetails_Address2" name="Address2" value="">
+                                            <label class="control-label">
+                                                ADDRESS 2
+                                            </label>
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">
+                                            <select class="form-control" required="required" id="CardDetails_BillingDetails_Country" name="country">
+                                                <option value="">Select Country</option>
+                                                <option value="US">United States</option>
+                                                <option value="CA">Canada</option>
+                                                <option disabled="disabled" value="">----------</option>
+                                                <option value="AF">Afghanistan</option>
+                                                <option value="AX">Aland Islands</option>
+                                                <option value="AL">Albania</option>
+                                                <option value="DZ">Algeria</option>
+                                                <option value="AS">American Samoa</option>
+                                                <option value="AD">Andorra</option>
+                                                <option value="AO">Angola</option>
+                                                <option value="AI">Anguilla</option>
+                                                <option value="AQ">Antarctica</option>
+                                                <option value="AG">Antigua and Barbuda</option>
+                                                <option value="AR">Argentina</option>
+                                                <option value="AM">Armenia</option>
+                                                <option value="AW">Aruba</option>
+                                                <option value="AU">Australia</option>
+                                                <option value="AT">Austria</option>
+                                                <option value="AZ">Azerbaijan</option>
+                                                <option value="BS">Bahamas</option>
+                                                <option value="BH">Bahrain</option>
+                                                <option value="BD">Bangladesh</option>
+                                                <option value="BB">Barbados</option>
+                                                <option value="BY">Belarus</option>
+                                                <option value="BE">Belgium</option>
+                                                <option value="BZ">Belize</option>
+                                                <option value="BJ">Benin</option>
+                                                <option value="BM">Bermuda</option>
+                                                <option value="BT">Bhutan</option>
+                                                <option value="BO">Bolivia</option>
+                                                <option value="BA">Bosnia and Herzegovina</option>
+                                                <option value="BW">Botswana</option>
+                                                <option value="BV">Bouvet Island</option>
+                                                <option value="BR">Brazil</option>
+                                                <option value="IO">British Indian Ocean Territory</option>
+                                                <option value="BN">Brunei Darussalam</option>
+                                                <option value="BG">Bulgaria</option>
+                                                <option value="BF">Burkina Faso</option>
+                                                <option value="BI">Burundi</option>
+                                                <option value="KH">Cambodia</option>
+                                                <option value="CM">Cameroon</option>
+                                                <option value="CV">Cape Verde</option>
+                                                <option value="KY">Cayman Islands</option>
+                                                <option value="CF">Central African Republic</option>
+                                                <option value="TD">Chad</option>
+                                                <option value="CL">Chile</option>
+                                                <option value="CN">China</option>
+                                                <option value="CX">Christmas Island</option>
+                                                <option value="CC">Cocos (Keeling) Islands</option>
+                                                <option value="CO">Colombia</option>
+                                                <option value="KM">Comoros</option>
+                                                <option value="CG">Congo</option>
+                                                <option value="CD">Congo The Democratic Republic of the</option>
+                                                <option value="CK">Cook Islands</option>
+                                                <option value="CR">Costa Rica</option>
+                                                <option value="CI">C&amp;#244;te d'Ivoire</option>
+                                                <option value="HR">Croatia</option>
+                                                <option value="CU">Cuba</option>
+                                                <option value="CY">Cyprus</option>
+                                                <option value="CZ">Czech Republic</option>
+                                                <option value="DK">Denmark</option>
+                                                <option value="DJ">Djibouti</option>
+                                                <option value="DM">Dominica</option>
+                                                <option value="DO">Dominican Republic</option>
+                                                <option value="EC">Ecuador</option>
+                                                <option value="EG">Egypt</option>
+                                                <option value="SV">El Salvador</option>
+                                                <option value="GQ">Equatorial Guinea</option>
+                                                <option value="ER">Eritrea</option>
+                                                <option value="EE">Estonia</option>
+                                                <option value="ET">Ethiopia</option>
+                                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                                <option value="FO">Faroe Islands</option>
+                                                <option value="FJ">Fiji</option>
+                                                <option value="FI">Finland</option>
+                                                <option value="FR">France</option>
+                                                <option value="GF">French Guiana</option>
+                                                <option value="PF">French Polynesia</option>
+                                                <option value="TF">French Southern Territories</option>
+                                                <option value="GA">Gabon</option>
+                                                <option value="GM">Gambia</option>
+                                                <option value="GE">Georgia</option>
+                                                <option value="DE">Germany</option>
+                                                <option value="GH">Ghana</option>
+                                                <option value="GI">Gibraltar</option>
+                                                <option value="GR">Greece</option>
+                                                <option value="GL">Greenland</option>
+                                                <option value="GD">Grenada</option>
+                                                <option value="GP">Guadeloupe</option>
+                                                <option value="GU">Guam</option>
+                                                <option value="GT">Guatemala</option>
+                                                <option value="GG">Guernsey</option>
+                                                <option value="GN">Guinea</option>
+                                                <option value="GW">Guinea-Bissau</option>
+                                                <option value="GY">Guyana</option>
+                                                <option value="HT">Haiti</option>
+                                                <option value="HM">Heard Island and McDonald Islands</option>
+                                                <option value="VA">Holy See (Vatican City State)</option>
+                                                <option value="HN">Honduras</option>
+                                                <option value="HK">Hong Kong</option>
+                                                <option value="HU">Hungary</option>
+                                                <option value="IS">Iceland</option>
+                                                <option value="IN">India</option>
+                                                <option value="ID">Indonesia</option>
+                                                <option value="IR">Iran Islamic Republic of</option>
+                                                <option value="IQ">Iraq</option>
+                                                <option value="IE">Ireland</option>
+                                                <option value="IM">Isle of Man</option>
+                                                <option value="IL">Israel</option>
+                                                <option value="IT">Italy</option>
+                                                <option value="JM">Jamaica</option>
+                                                <option value="JP">Japan</option>
+                                                <option value="JE">Jersey</option>
+                                                <option value="JO">Jordan</option>
+                                                <option value="KZ">Kazakhstan</option>
+                                                <option value="KE">Kenya</option>
+                                                <option value="KI">Kiribati</option>
+                                                <option value="KP">Korea Democratic People's Republic of</option>
+                                                <option value="KR">Korea Republic of</option>
+                                                <option value="KW">Kuwait</option>
+                                                <option value="KG">Kyrgyzstan</option>
+                                                <option value="LA">Lao People's Democratic Republic</option>
+                                                <option value="LV">Latvia</option>
+                                                <option value="LB">Lebanon</option>
+                                                <option value="LS">Lesotho</option>
+                                                <option value="LR">Liberia</option>
+                                                <option value="LY">Libyan Arab Jamahiriya</option>
+                                                <option value="LI">Liechtenstein</option>
+                                                <option value="LT">Lithuania</option>
+                                                <option value="LU">Luxembourg</option>
+                                                <option value="MO">Macao</option>
+                                                <option value="MK">Macedonia The Former Yugoslav Republic of</option>
+                                                <option value="MG">Madagascar</option>
+                                                <option value="MW">Malawi</option>
+                                                <option value="MY">Malaysia</option>
+                                                <option value="MV">Maldives</option>
+                                                <option value="ML">Mali</option>
+                                                <option value="MT">Malta</option>
+                                                <option value="MH">Marshall Islands</option>
+                                                <option value="MQ">Martinique</option>
+                                                <option value="MR">Mauritania</option>
+                                                <option value="MU">Mauritius</option>
+                                                <option value="YT">Mayotte</option>
+                                                <option value="MX">Mexico</option>
+                                                <option value="FM">Microneia Federated States of</option>
+                                                <option value="MD">Moldova</option>
+                                                <option value="MC">Monaco</option>
+                                                <option value="MN">Mongolia</option>
+                                                <option value="ME">Montenegro</option>
+                                                <option value="MS">Montserrat</option>
+                                                <option value="MA">Morocco</option>
+                                                <option value="MZ">Mozambique</option>
+                                                <option value="MM">Myanmar</option>
+                                                <option value="NA">Namibia</option>
+                                                <option value="NR">Nauru</option>
+                                                <option value="NP">Nepal</option>
+                                                <option value="NL">Netherlands</option>
+                                                <option value="AN">Netherlands Antilles</option>
+                                                <option value="NC">New Caledonia</option>
+                                                <option value="NZ">New Zealand</option>
+                                                <option value="NI">Nicaragua</option>
+                                                <option value="NE">Niger</option>
+                                                <option value="NG">Nigeria</option>
+                                                <option value="NU">Niue</option>
+                                                <option value="NF">Norfolk Island</option>
+                                                <option value="MP">Northern Mariana Islands</option>
+                                                <option value="NO">Norway</option>
+                                                <option value="OM">Oman</option>
+                                                <option value="PK">Pakistan</option>
+                                                <option value="PW">Palau</option>
+                                                <option value="PS">Palestinian Territory Occupied</option>
+                                                <option value="PA">Panama</option>
+                                                <option value="PG">Papua New Guinea</option>
+                                                <option value="PY">Paraguay</option>
+                                                <option value="PE">Peru</option>
+                                                <option value="PH">Philippines</option>
+                                                <option value="PN">Pitcairn</option>
+                                                <option value="PL">Poland</option>
+                                                <option value="PT">Portugal</option>
+                                                <option value="PR">Puerto Rico</option>
+                                                <option value="QA">Qatar</option>
+                                                <option value="RE">R&amp;#233;union</option>
+                                                <option value="RO">Romania</option>
+                                                <option value="RU">Russian Federation</option>
+                                                <option value="RW">Rwanda</option>
+                                                <option value="BL">Saint Barth&amp;#233;lemy</option>
+                                                <option value="SH">Saint Helena</option>
+                                                <option value="KN">Saint Kitts and Nevis</option>
+                                                <option value="LC">Saint Lucia</option>
+                                                <option value="MF">Saint Martin</option>
+                                                <option value="PM">Saint Pierre and Miquelon</option>
+                                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                                <option value="WS">Samoa</option>
+                                                <option value="SM">San Marino</option>
+                                                <option value="ST">Sao Tome and Principe</option>
+                                                <option value="SA">Saudi Arabia</option>
+                                                <option value="SN">Senegal</option>
+                                                <option value="RS">Serbia</option>
+                                                <option value="SC">Seychelles</option>
+                                                <option value="SL">Sierra Leone</option>
+                                                <option value="SG">Singapore</option>
+                                                <option value="SK">Slovakia</option>
+                                                <option value="SI">Slovenia</option>
+                                                <option value="SB">Solomon Islands</option>
+                                                <option value="SO">Somalia</option>
+                                                <option value="ZA">South Africa</option>
+                                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                                <option value="ES">Spain</option>
+                                                <option value="LK">Sri Lanka</option>
+                                                <option value="SD">Sudan</option>
+                                                <option value="SR">Suriname</option>
+                                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                                <option value="SZ">Swaziland</option>
+                                                <option value="SE">Sweden</option>
+                                                <option value="CH">Switzerland</option>
+                                                <option value="SY">Syrian Arab Republic</option>
+                                                <option value="TW">Taiwan Province of China</option>
+                                                <option value="TJ">Tajikistan</option>
+                                                <option value="TZ">Tanzania United Republic of</option>
+                                                <option value="TH">Thailand</option>
+                                                <option value="TL">Timor-Leste</option>
+                                                <option value="TG">Togo</option>
+                                                <option value="TK">Tokelau</option>
+                                                <option value="TO">Tonga</option>
+                                                <option value="TT">Trinidad and Tobago</option>
+                                                <option value="TN">Tunisia</option>
+                                                <option value="TR">Turkey</option>
+                                                <option value="TM">Turkmenistan</option>
+                                                <option value="TC">Turks and Caicos Islands</option>
+                                                <option value="TV">Tuvalu</option>
+                                                <option value="UG">Uganda</option>
+                                                <option value="UA">Ukraine</option>
+                                                <option value="AE">United Arab Emirates</option>
+                                                <option value="UM">United States Minor Outlying Islands</option>
+                                                <option value="UY">Uruguay</option>
+                                                <option value="UZ">Uzbekistan</option>
+                                                <option value="VU">Vanuatu</option>
+                                                <option value="VE">Venezuela</option>
+                                                <option value="VN">Viet Nam</option>
+                                                <option value="VG">Virgin Islands British</option>
+                                                <option value="VI">Virgin Islands U.S.</option>
+                                                <option value="WF">Wallis and Futuna</option>
+                                                <option value="EH">Western Sahara</option>
+                                                <option value="YE">Yemen</option>
+                                                <option value="ZM">Zambia</option>
+                                                <option value="ZW">Zimbabwe</option>
+                                            </select>
+                                            <input type="hidden" id="CardDetails_BillingDetails_Country" name="CardDetails.BillingDetails.Country" value="">
+                                            <label class="control-label">
+                                                Country
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">                                            
+                                                <input class="form-control" placeholder="State/Province" type="text" required="required" id="CardDetails_BillingDetails_Region" name="Region" value="">
+                                                <label class="control-label">
+                                                    STATE/PROVINCE
+                                                </label>                                            
+                                        </div>
+                                        
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">                                            
+                                                <input class="form-control" placeholder="City / Town" type="text" required="required" id="CardDetails_BillingDetails_City" name="City" value="">
+                                                <label class="control-label">
+                                                    CITY/TOWN
+                                                </label>                                            
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 kl-fancy-form">
+                                            
+                                                <input class="form-control" placeholder="Postal/Zip Code" type="text" required="required" id="CardDetails_BillingDetails_PostCode" name="PostCode" value="">
+                                                <label class="control-label">
+                                                    POSTAL/ZIP CODE
+                                                </label>
+                                            
+                                        </div>
+
+                                    </div>
+                                    <!--/ .row -->
+                                </div>
+                                <!--/ .container -->
+                            </section>
+
+
+
+                        </div>
+                        <!--/ .kl-store -->
+                    </div>
                 </div>
                 <!--/ Content page col-sm-12 col-md-12 col-lg-9 mb-md-50 -->
                 <!-- Sidebar -->
@@ -1209,7 +1546,7 @@
                       
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="d-inline-flex pt-20 mr-20 mb-30 left_sidebar">
-                                <button type="submit" class="btn-element btn btn-fullcolor btn-skewed">Book Now &#36; <%=data.response.grandTotal%></button>
+                                <button id="GetData" type="button" class="btn-element btn btn-fullcolor btn-skewed">Book Now &#36; <%=data.response.grandTotal%></button>
                             </div>
                         </div>
                     </div>
@@ -1250,17 +1587,105 @@
     <script>
         $(document).ready(function () {
             
-            $('#form').on('submit', function (e) {
-                debugger;
-                if (e.isDefaultPrevented()) {
-                    // handle the invalid form...
-                } else {
-                    $('.popupModel').show();
-                }
-            })
+            // $('#form1').on('submit', function (e) {
+            //     if (e.isDefaultPrevented()) {
+            //         // handle the invalid form...
+            //     } else {
+                    
+            //         $('.popupModel').show();
 
-        });
-        
+            //     }
+            // })
+            });
+            
+            
+            $('#GetData').on('click', (e)=>{
+                e.preventDefault()
+                $('.popupModel').show();
+                const firstName = $("input[name='firstName[]']").map(function(){return $(this).val();}).get();
+                const middleName = $("input[name='middleName[]']").map(function(){return $(this).val();}).get();
+                const lastName = $("input[name='lastName[]']").map(function(){return $(this).val();}).get();
+                const dobDay = $("select[name='dobDay[]']").map(function(){return $(this).val();}).get();
+                const dobMonth = $("select[name='dobMonth[]']").map(function(){return $(this).val();}).get();
+                const dobYear = $("select[name='dobYear[]']").map(function(){return $(this).val();}).get();
+                const title = $("select[name='title[]']").map(function(){return $(this).val();}).get();
+                const gender = $("select[name='gender[]']").map(function(){return $(this).val();}).get();
+                const type = $("input[name='paxType[]']").map(function(){return $(this).val();}).get();
+
+                const arrayOfObjects = firstName.map((currentValue, index) => {
+                    return{
+                        sl_no: currentValue,
+                        firstName: firstName[index],
+                        lastName: lastName[index],
+                        middleName: middleName[index],
+                        day: dobDay[index],
+                        month: dobMonth[index],
+                        year: dobYear[index],
+                        title: title[index],
+                        gender: gender[index],
+                        type: type[index]
+                    }
+                    })
+                const currency = $('input[name="currency"]').val()
+                const totalPrice = `<%=data.response.totalPrice%>`
+                const jType = `<%=data.jtype%>`
+                const origin = $('input[name="origin"]').val()
+                const destination = $('input[name="destination"]').val()
+                const fareFamily = $('input[name="fareFamily"]').val()
+                const valCarrier = $('input[name="valCarrier"]').val()
+                const email = $('input[name="email"]').val()
+                const mobile = $('input[name="mobile_no"]').val()
+                const cardHolder = $('input[name="cardHolder"]').val()
+                const cardNumber = $('input[name="cardNumber"]').val()
+                const cardExpMonth = $('select[name="cardExpMonth"]').val()
+                const cardExpYear = $('select[name="cardExpYear"]').val()
+                const cardCvv = $('input[name="cvv"]').val()
+                const address1 = $('input[name="Address1"]').val()
+                const address2 = $('input[name="Address2"]').val()
+                const country = $('select[name="country"]').val()
+                const region = $('input[name="Region"]').val()
+                const city = $('input[name="City"]').val()
+                const postal = $('input[name="PostCode"]').val()
+                const lastTicketingDate = `<%=data.response.lastTicketingDate%>`
+                const data = {
+                    currency,
+                    totalPrice,
+                    jType,
+                    origin,
+                    destination,
+                    fareFamily,
+                    valCarrier,
+                    email,
+                    mobile,
+                    address1,
+                    address2,
+                    region,
+                    city,
+                    postal,
+                    country,
+                    passengers: arrayOfObjects,
+                    cardHolder,
+                    cardNumber,
+                    cardCvv,
+                    cardExpMonth,
+                    cardExpYear,
+                    lastTicketingDate
+
+                }
+               $.ajax({
+                url:`flight/create-booking`,
+                type:'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                success:(res)=>{
+                    window.location = `${window.origin}/flight/booking-confirmation?bookingId=${res.data.Booking_Id}`
+                },
+                error:(err)=>{
+                    alert(err.responseJSON.message)
+                }
+               })
+
+            }) 
     </script>
 
 

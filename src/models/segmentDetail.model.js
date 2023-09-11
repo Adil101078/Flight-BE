@@ -3,33 +3,36 @@ import Database from "../core/database";
 
 const Segment_Details = Database.define("Segment_Details", {
         Sno:{
-            type: DataTypes.INTEGER,
-            primaryKey:true
+            type: DataTypes.BIGINT,
+            primaryKey:true,
+            autoIncrement: true
         },
         Booking_Id: {
             type: DataTypes.STRING,
+            primaryKey:true,
             references: {
                 model: "Booking_Product_Master",
                 key: "Booking_Id"
                 }
         },
         Product_Id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
+            primaryKey:true,
             references: {
                 model: "Booking_Product_Details",
                 key: "Product_Id"
                 }
         },
         Segment_Carrier:{
-            type:DataTypes.STRING(3),
+            type:DataTypes.STRING,
             defaultValue:""
         },
         Segment_Departure:{
-            type: DataTypes.STRING(3),
+            type: DataTypes.STRING,
             defaultValue:""
         },
         Segment_Arrival:{
-            type: DataTypes.STRING(3),
+            type: DataTypes.STRING,
             defaultValue:""
         },
         Segment_Flight_No:{
@@ -70,11 +73,9 @@ const Segment_Details = Database.define("Segment_Details", {
         },
         Segment_Id:{
             type: DataTypes.INTEGER,
-            defaultValue:""
         },
         Segment_Group_Id:{
             type: DataTypes.INTEGER,
-            defaultValue:""
         },
         Segment_Remarks:{
             type: DataTypes.STRING,
@@ -133,18 +134,17 @@ const Segment_Details = Database.define("Segment_Details", {
             defaultValue: Date.now()
         },
         Segment_Departure_Date_Time:{
-            type: DataTypes.DATE,
-            defaultValue: Date.now()
+            type: DataTypes.DATE
         },
         Segment_Arrival_Date_Time:{
-            type: DataTypes.DATE,
-            defaultValue: Date.now()
+            type: DataTypes.DATE
         },
         
         
     },{
         freezeTableName: true,
         timestamps: false,
+        initialAutoIncrement:1
 });
 
 

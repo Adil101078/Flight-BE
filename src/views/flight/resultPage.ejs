@@ -664,11 +664,16 @@
             /** Send the selected data to passenger detail page */
             $(document).on("click","button",function(){
                 let UID
-                const itinerary = '<%- JSON.stringify(data._response)%>'
+                const urlParams = new URLSearchParams(window.location.search)
+                const jType = urlParams.get('jType')
+                const origin = urlParams.get('Origin')
+                const destination = urlParams.get('Destination')
+                const itinerary = `<%- JSON.stringify(data._response)%>`
                
                 UID = this.id
                 const arr = JSON.parse(itinerary)
-            const data = arr.find((e)=> e.uid == UID)
+                const _data = arr.find((e)=> e.uid == UID)
+                const data = { jType, origin, destination, ..._data}
            
             $.ajax({
                 url : `${window.origin}/flight/passenger-detail`,
@@ -677,8 +682,8 @@
                 contentType: 'application/json',
                 success: (res)=>{
                     localStorage.clear()
-                    localStorage.setItem('new_data', JSON.stringify(data))                   
-                    window.location = `${window.origin}/flight/passenger-detail?uid=${data.uid}`
+                    localStorage.setItem('new_data', JSON.stringify(data))                  
+                    window.location = `${window.origin}/flight/passenger-detail?uid=${_data.uid}&jtype=${jType}&Origin=${origin}&Destination=${destination}&valCarrier=${_data.valCarrier}&fareFamily=${_data.fareFamily}`
                 },
                 error: (err)=>{
                     alert(err.responseJSON.message)
